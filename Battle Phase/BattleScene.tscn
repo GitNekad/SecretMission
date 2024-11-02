@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtiv2ec1bkse5"]
+
+[ext_resource type="Texture2D" uid="uid://eb5o424bkarv" path="res://Battle Phase/BattleScene.png" id="1_sr5xo"]
+[ext_resource type="Script" path="res://Playable Character/PlayerBehaviour.gd" id="2_stlue"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x0kkm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wi61d"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7g42n"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vqimw"]
+
+[node name="BattleScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="SceneBackground" type="Sprite2D" parent="."]
+texture = ExtResource("1_sr5xo")
+
+[node name="Map Collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map Collisions"]
+polygon = PackedVector2Array(-480, 45, -374, 45, -341, 72, -281, 72, -265, 45, -187, 45, -187, -47, -163, -47, -163, -168, -168, -142, -480, -142)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map Collisions"]
+polygon = PackedVector2Array(-103, 45, 129, 45, 129, -46, 182, -46, 215, 45, 297, 45, 304, 58, 355, 58, 355, 45, 456, 45, 456, -142, -130, -142, -142, -168, -142, -47, -131, -47)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Map Collisions"]
+polygon = PackedVector2Array(477, -142, 477, 45, 480, 45, 480, -142)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Map Collisions"]
+polygon = PackedVector2Array(-480, -184, -187, -184, -187, -202, -130, -202, -117, -184, 480, -184, 480, -270, -480, -270)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Map Collisions"]
+polygon = PackedVector2Array(-73, 75, -60, 126, -57, 145, -8, 145, -5, 125, -18, 71, -72, 71)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Map Collisions"]
+polygon = PackedVector2Array(62, 74, 75, 126, 78, 145, 127, 145, 130, 125, 117, 71, 63, 71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Collisions"]
+position = Vector2(0, 270)
+shape = SubResource("WorldBoundaryShape2D_x0kkm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map Collisions"]
+position = Vector2(0, -270)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_wi61d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Map Collisions"]
+position = Vector2(480, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_7g42n")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map Collisions"]
+position = Vector2(-480, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_vqimw")
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("2_stlue")
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="NPCs POIs" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="NPCs POIs"]
+position = Vector2(-313, 86)
+
+[node name="Node2D2" type="Node2D" parent="NPCs POIs"]
+position = Vector2(-73, 110)
+
+[node name="Node2D3" type="Node2D" parent="NPCs POIs"]
+position = Vector2(2, 111)
+
+[node name="Node2D4" type="Node2D" parent="NPCs POIs"]
+position = Vector2(62, 110)
+
+[node name="Node2D5" type="Node2D" parent="NPCs POIs"]
+position = Vector2(137, 110)
+
+[node name="Node2D6" type="Node2D" parent="NPCs POIs"]
+position = Vector2(-314, 176)
+
+[node name="Node2D7" type="Node2D" parent="NPCs POIs"]
+position = Vector2(272, 182)
+
+[node name="Node2D8" type="Node2D" parent="NPCs POIs"]
+position = Vector2(416, 180)
+
+[node name="Node2D9" type="Node2D" parent="NPCs POIs"]
+position = Vector2(157, -29)
+
+[node name="Node2D10" type="Node2D" parent="NPCs POIs"]
+position = Vector2(381, 106)
+
+[node name="Node2D11" type="Node2D" parent="NPCs POIs"]
+position = Vector2(-194, 100)
+
+[node name="Node2D12" type="Node2D" parent="NPCs POIs"]
+position = Vector2(14, -158)
+
+[node name="Node2D13" type="Node2D" parent="NPCs POIs"]
+position = Vector2(210, -157)
+
+[node name="Node2D14" type="Node2D" parent="NPCs POIs"]
+position = Vector2(395, -155)
