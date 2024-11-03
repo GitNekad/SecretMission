@@ -26,6 +26,7 @@ window/size/initial_position_type=2
 
 folder_colors={
 "res://Battle Phase/": "red",
+"res://Interactables/": "green",
 "res://Playable Character/": "orange",
 "res://Testing/": "pink",
 "res://addons/": "gray"
