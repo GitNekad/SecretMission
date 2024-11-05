@@ -10,6 +10,10 @@ var CHARACTER_SPEED = 300
 func _ready():
 	instantiateCharacter(Vector2i(-263,152))
 
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		interact()
+
 func get_input():
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	characterVelocity = input_dir * CHARACTER_SPEED
@@ -41,3 +45,8 @@ func animateSprite():
 		lookingAt = "B-"
 	if character.sprite.animation != lookingAt+movement:
 		character.sprite.play(lookingAt+movement)
+
+func interact():
+	if character == null or character.currentInteractable == null:
+		return
+	character.currentInteractable.activate()

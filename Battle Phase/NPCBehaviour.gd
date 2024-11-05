@@ -1,21 +1,35 @@
 extends Node2D
+class_name NPCBehaviour
 
 @export var navigationAgent : NavigationAgent2D
 @export var pointsOfInterest : Array[Node2D]
 @export var sprite : AnimatedSprite2D
+@export var healthBar : ProgressBar
 var moving : bool
+var stun : bool = false
 var characterLookingDirection : Vector2 = Vector2(0,1)
 var currentPoi : POIBehaviour
+var health = 100
+var waitingTimer : SceneTreeTimer
+var stunTimer : SceneTreeTimer
 
 var CHARACTER_SPEED = 75
 var MIN_WAIT_TIME = 10
 var MAX_WAIT_TIME = 30
+var MIN_STUN_TIME = 5
+var MAX_STUN_TIME = 10
+
+var READY = false
 
 func _ready():
 	setNewTarget()
 	navigationAgent.navigation_finished.connect(waitInPOIAndSetNewTarget)
+	await get_tree().create_timer(0.5).timeout
+	mapReady()
 
 func _physics_process(delta):
+	if !READY or stun:
+		return
 	if navigationAgent.is_target_reachable():
 		if int(navigationAgent.distance_to_target()) > 4:
 			var nextLocation = navigationAgent.get_next_path_position()
@@ -37,7 +51,10 @@ func waitInPOIAndSetNewTarget():
 	moving = false
 	characterLookingDirection = currentPoi.lookingPosition
 	var waitTime = randf_range(MIN_WAIT_TIME, MAX_WAIT_TIME)
-	await get_tree().create_timer(waitTime).timeout
+	waitingTimer = get_tree().create_timer(waitTime)
+	await waitingTimer.timeout
+	if stun:
+		return
 	currentPoi.available = true
 	setNewTarget()
 
@@ -57,3 +74,26 @@ func animateSprite():
 		lookingAt = "B-"
 	if sprite.animation != lookingAt+movement:
 		sprite.play(lookingAt+movement)
+
+func hurt(value):
+	health -= value
+	healthBar.value = health
+	pushTo(self, 0)
+
+func pushTo(pushPosition : Node2D, damage):
+	var stunTime = randf_range(MIN_STUN_TIME, MAX_STUN_TIME)
+	stunTimer = get_tree().create_timer(stunTime)
+	stun = true
+	sprite.play("Stun")
+	if waitingTimer != null:
+		waitingTimer.time_left = 0
+	global_position = pushPosition.global_position
+	health -= damage
+	healthBar.value = health
+	currentPoi.available = true
+	await stunTimer.timeout
+	stun = false
+	setNewTarget()
+
+func mapReady():
+	READY = true

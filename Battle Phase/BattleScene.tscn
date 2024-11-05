@@ -1,13 +1,16 @@
-[gd_scene load_steps=47 format=3 uid="uid://dtiv2ec1bkse5"]
+[gd_scene load_steps=74 format=3 uid="uid://dtiv2ec1bkse5"]
 
 [ext_resource type="Texture2D" uid="uid://eb5o424bkarv" path="res://Battle Phase/BattleScene.png" id="1_sr5xo"]
 [ext_resource type="Script" path="res://Playable Character/PlayerBehaviour.gd" id="2_stlue"]
-[ext_resource type="Texture2D" uid="uid://ddbqltg4s3unb" path="res://Playable Character/PlayableCharacter.png" id="3_n82cd"]
 [ext_resource type="Script" path="res://Battle Phase/NPCBehaviour.gd" id="3_oe68m"]
+[ext_resource type="Texture2D" uid="uid://clo4dk1i54gik" path="res://Battle Phase/Penwin.png" id="4_orrrb"]
 [ext_resource type="Script" path="res://Battle Phase/POIBehaviour.gd" id="5_8ocjk"]
 [ext_resource type="Texture2D" uid="uid://dbkmlk5la773u" path="res://Interactables/Piano.png" id="6_6lshu"]
+[ext_resource type="Script" path="res://Interactables/InteractableBehaviour.gd" id="7_kvrt3"]
 [ext_resource type="Texture2D" uid="uid://t4c83ydileb7" path="res://Interactables/Electricity.png" id="7_v3hr0"]
 [ext_resource type="Texture2D" uid="uid://2dfpmklkmn5r" path="res://Interactables/Apple.png" id="8_uc2uy"]
+[ext_resource type="Texture2D" uid="uid://dh0nckvqeyq3x" path="res://Battle Phase/Car.png" id="10_ocynm"]
+[ext_resource type="Script" path="res://Battle Phase/CarBehaviour.gd" id="11_s6y1u"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x0kkm"]
 
@@ -19,51 +22,59 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e6w7y"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aaon2"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgo6h"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ylbix"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_acpq0"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(0, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tspoo"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kah37"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(32, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1mox7"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_loian"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_42j6p"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h12h"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rm4lj"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5f7i"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nc6ja"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_my4fx"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_042po"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg5x3"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(0, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o212v"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8413"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tonie"]
-atlas = ExtResource("3_n82cd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjwim"]
+atlas = ExtResource("4_orrrb")
 region = Rect2(32, 160, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_kqr5p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ipx4"]
+atlas = ExtResource("4_orrrb")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il4aw"]
+atlas = ExtResource("4_orrrb")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4tuvm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aaon2")
+"texture": SubResource("AtlasTexture_mgo6h")
 }],
 "loop": true,
 "name": &"B-Idle",
@@ -71,10 +82,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ylbix")
+"texture": SubResource("AtlasTexture_acpq0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tspoo")
+"texture": SubResource("AtlasTexture_kah37")
 }],
 "loop": true,
 "name": &"B-Walk",
@@ -82,7 +93,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1mox7")
+"texture": SubResource("AtlasTexture_loian")
 }],
 "loop": true,
 "name": &"F-Idle",
@@ -90,10 +101,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_42j6p")
+"texture": SubResource("AtlasTexture_0h12h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rm4lj")
+"texture": SubResource("AtlasTexture_n5f7i")
 }],
 "loop": true,
 "name": &"F-Walk",
@@ -101,7 +112,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nc6ja")
+"texture": SubResource("AtlasTexture_my4fx")
 }],
 "loop": true,
 "name": &"S-Idle",
@@ -109,21 +120,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_042po")
+"texture": SubResource("AtlasTexture_bg5x3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o212v")
+"texture": SubResource("AtlasTexture_v8413")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tonie")
+"texture": SubResource("AtlasTexture_sjwim")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o212v")
+"texture": SubResource("AtlasTexture_v8413")
 }],
 "loop": true,
 "name": &"S-Walk",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ipx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il4aw")
+}],
+"loop": true,
+"name": &"Stun",
+"speed": 3.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xi7y"]
+bg_color = Color(0.08, 0.08, 0.08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oe0a"]
+bg_color = Color(1, 0.28, 0.28, 1)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gwvhe"]
 vertices = PackedVector2Array(465, 71.8984, 468, 70.2813, 471, 72.2813, 471, 186, 3.14063, 124.641, 50.9531, 63, 71.6328, 153, -1.10938, 153, -11.7031, 63, 465, -154.352, 468, -149.352, 470.258, -175, 138.141, 124.641, 365, 68, 439.781, 55, 453.727, 75.3906, 133.891, 153, 455.117, -158.438, -121.094, -175, 447.68, -151, -124.047, -151, -138.68, -180.242, -134.094, -193, -178, -193, -151, -177.328, -154, -178.078, -471.047, 186, -471.953, 55, -376.289, 55, -344.352, 74.9609, 138, 53.9688, 138, -37, 175.367, -37, 208.367, 55, 365, 55, 299.531, 68, 291.531, 55, 123.297, 63, -108.688, 55.0234, -78.25, 63, -178, 55, -178, 4, -154, 4, -151, 4.36719, -175.25, -151, -471, -151, -471, -175, -178, -175, -168.047, -179.797, -81.2266, 74.9219, -277.227, 76.0625, -63.3828, 153, -126.602, 3.25781, -260.18, 55)
@@ -155,9 +183,13 @@ region = Rect2(475, 0, 95, 265)
 atlas = ExtResource("6_6lshu")
 region = Rect2(570, 0, 95, 265)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5aw5b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p06lm"]
 atlas = ExtResource("6_6lshu")
 region = Rect2(0, 0, 95, 265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6uaf"]
+atlas = ExtResource("7_v3hr0")
+region = Rect2(0, 0, 103, 88)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fb7wc"]
 animations = [{
@@ -186,12 +218,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5aw5b")
+"texture": SubResource("AtlasTexture_p06lm")
 }],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6uaf")
+}],
+"loop": true,
+"name": &"Unavailable",
+"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvb3w"]
+size = Vector2(47, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puhej"]
+size = Vector2(74, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuwvw"]
 atlas = ExtResource("7_v3hr0")
@@ -212,6 +258,10 @@ region = Rect2(309, 0, 103, 88)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bigqq"]
 atlas = ExtResource("7_v3hr0")
 region = Rect2(412, 0, 103, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0slsy"]
+atlas = ExtResource("7_v3hr0")
+region = Rect2(0, 0, 103, 88)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mkq0e"]
 animations = [{
@@ -239,6 +289,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8w76l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bigqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w76l")
+}, {
+"duration": 0.01,
+"texture": SubResource("AtlasTexture_xuwvw")
 }],
 "loop": false,
 "name": &"Active",
@@ -248,7 +307,18 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0slsy")
+}],
+"loop": true,
+"name": &"Unavailable",
+"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqlfd"]
+size = Vector2(36, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_een46"]
 atlas = ExtResource("8_uc2uy")
@@ -273,6 +343,10 @@ region = Rect2(35, 0, 7, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxjku"]
 atlas = ExtResource("8_uc2uy")
 region = Rect2(0, 0, 7, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6uh4"]
+atlas = ExtResource("7_v3hr0")
+region = Rect2(0, 0, 103, 88)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ttkx4"]
 animations = [{
@@ -303,7 +377,95 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6uh4")
+}],
+"loop": true,
+"name": &"Unavailable",
+"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pald"]
+size = Vector2(37, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd8y3"]
+size = Vector2(20, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3674p"]
+size = Vector2(42, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3hy1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaktr"]
+atlas = ExtResource("7_v3hr0")
+region = Rect2(0, 0, 103, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkfix"]
+atlas = ExtResource("7_v3hr0")
+region = Rect2(0, 0, 103, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b878l"]
+atlas = ExtResource("7_v3hr0")
+region = Rect2(0, 0, 103, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yskkr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaktr")
+}],
+"loop": true,
+"name": &"Active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkfix")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b878l")
+}],
+"loop": true,
+"name": &"Unavailable",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrqb5"]
+size = Vector2(40, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mc7d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w7l7"]
+atlas = ExtResource("10_ocynm")
+region = Rect2(0, 0, 240, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oya8b"]
+atlas = ExtResource("10_ocynm")
+region = Rect2(240, 0, 240, 105)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oeb8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w7l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oya8b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7cy4"]
+size = Vector2(160, 79)
 
 [node name="BattleScene" type="Node2D"]
 
@@ -353,30 +515,43 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_vqimw")
 
 [node name="Player" type="Node2D" parent="."]
+top_level = true
 script = ExtResource("2_stlue")
 
 [node name="NPCs" type="Node2D" parent="."]
+top_level = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite")]
+[node name="NPC1" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar")]
 position = Vector2(-151.54, 0)
 script = ExtResource("3_oe68m")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
 sprite = NodePath("AnimatedSprite2D")
+healthBar = NodePath("HealthBar")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC1"]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_kqr5p")
-animation = &"S-Walk"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC1"]
+sprite_frames = SubResource("SpriteFrames_4tuvm")
+animation = &"F-Idle"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NPCs/CharacterBody2D"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NPCs/NPC1"]
 path_desired_distance = 5.0
 target_desired_distance = 5.0
 debug_enabled = true
 debug_path_custom_color = Color(1, 0.0941176, 1, 1)
+
+[node name="HealthBar" type="ProgressBar" parent="NPCs/NPC1"]
+offset_left = -21.0
+offset_top = -25.0
+offset_right = 21.0
+offset_bottom = -18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0xi7y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2oe0a")
+value = 99.96
+show_percentage = false
 
 [node name="NPCs POIs" type="Node2D" parent="."]
 
@@ -406,15 +581,15 @@ script = ExtResource("5_8ocjk")
 lookingPosition = Vector2i(-1, 0)
 
 [node name="Node2D6" type="Node2D" parent="NPCs POIs"]
-position = Vector2(-314, 176)
+position = Vector2(-314, 185)
 script = ExtResource("5_8ocjk")
 
 [node name="Node2D7" type="Node2D" parent="NPCs POIs"]
-position = Vector2(272, 182)
+position = Vector2(272, 185)
 script = ExtResource("5_8ocjk")
 
 [node name="Node2D8" type="Node2D" parent="NPCs POIs"]
-position = Vector2(416, 180)
+position = Vector2(416, 185)
 script = ExtResource("5_8ocjk")
 
 [node name="Node2D9" type="Node2D" parent="NPCs POIs"]
@@ -431,15 +606,15 @@ position = Vector2(-194, 100)
 script = ExtResource("5_8ocjk")
 
 [node name="Node2D12" type="Node2D" parent="NPCs POIs"]
-position = Vector2(14, -158)
+position = Vector2(14, -152)
 script = ExtResource("5_8ocjk")
 
 [node name="Node2D13" type="Node2D" parent="NPCs POIs"]
-position = Vector2(210, -157)
+position = Vector2(210, -152)
 script = ExtResource("5_8ocjk")
 
 [node name="Node2D14" type="Node2D" parent="NPCs POIs"]
-position = Vector2(395, -155)
+position = Vector2(395, -152)
 script = ExtResource("5_8ocjk")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -447,17 +622,312 @@ navigation_polygon = SubResource("NavigationPolygon_gwvhe")
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="Piano" type="AnimatedSprite2D" parent="Interactables"]
+[node name="Piano" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
 position = Vector2(-312, -18)
 sprite_frames = SubResource("SpriteFrames_fb7wc")
 animation = &"Idle"
+frame_progress = 0.974339
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = 30
+unavailableIfAlone = null
 
-[node name="Electricity" type="AnimatedSprite2D" parent="Interactables"]
+[node name="ActivationArea" type="Area2D" parent="Interactables/Piano"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Piano/ActivationArea"]
+position = Vector2(0, -136)
+shape = SubResource("RectangleShape2D_jvb3w")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Piano"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Piano/HurtArea"]
+position = Vector2(2, 107)
+shape = SubResource("RectangleShape2D_puhej")
+
+[node name="Electricity" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
 position = Vector2(340, 89)
 sprite_frames = SubResource("SpriteFrames_mkq0e")
 animation = &"Idle"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = 20
+unavailableIfAlone = null
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Interactables"]
+[node name="ActivationArea" type="Area2D" parent="Interactables/Electricity"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Electricity/ActivationArea"]
+position = Vector2(-57, -34.5)
+shape = SubResource("RectangleShape2D_nqlfd")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Electricity"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Electricity/HurtArea"]
+polygon = PackedVector2Array(44, -42, 60, -3, 46, 16, 42, 43, 20, 55, -10, 43, -21, 27, -54, 9, -58, -13, -60, -37, -54, -42, -44, -42, -36, -29, 16, -29, 16, -42)
+
+[node name="Apple1" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
 position = Vector2(-56, 93)
 sprite_frames = SubResource("SpriteFrames_ttkx4")
-animation = &"Idle"
+animation = &"Unavailable"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = 10
+unavailableIfAlone = true
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Apple1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple1/ActivationArea"]
+position = Vector2(-19.5, 9.5)
+shape = SubResource("RectangleShape2D_3pald")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Apple1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple1/HurtArea"]
+position = Vector2(-19, 14)
+shape = SubResource("RectangleShape2D_cd8y3")
+
+[node name="Apple2" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
+position = Vector2(-17, 95)
+sprite_frames = SubResource("SpriteFrames_ttkx4")
+animation = &"Unavailable"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = 10
+unavailableIfAlone = true
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Apple2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple2/ActivationArea"]
+position = Vector2(20, 6)
+shape = SubResource("RectangleShape2D_3674p")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Apple2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple2/HurtArea"]
+position = Vector2(17, 11)
+shape = SubResource("RectangleShape2D_j3hy1")
+
+[node name="Apple3" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
+position = Vector2(80, 93)
+sprite_frames = SubResource("SpriteFrames_ttkx4")
+animation = &"Active"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = 10
+unavailableIfAlone = true
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Apple3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple3/ActivationArea"]
+position = Vector2(-19.5, 9.5)
+shape = SubResource("RectangleShape2D_3pald")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Apple3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple3/HurtArea"]
+position = Vector2(-19, 14)
+shape = SubResource("RectangleShape2D_cd8y3")
+
+[node name="Apple4" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
+position = Vector2(118, 95)
+sprite_frames = SubResource("SpriteFrames_ttkx4")
+animation = &"Active"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = 10
+unavailableIfAlone = true
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Apple4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple4/ActivationArea"]
+position = Vector2(20, 6)
+shape = SubResource("RectangleShape2D_3674p")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Apple4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple4/HurtArea"]
+position = Vector2(17, 11)
+shape = SubResource("RectangleShape2D_j3hy1")
+
+[node name="Push1" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+position = Vector2(14, -152)
+sprite_frames = SubResource("SpriteFrames_yskkr")
+animation = &"Unavailable"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = 10
+unavailableIfAlone = true
+pushPosition = NodePath("Node2D")
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Push1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push1/ActivationArea"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_mrqb5")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Push1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push1/HurtArea"]
+shape = SubResource("RectangleShape2D_7mc7d")
+
+[node name="Node2D" type="Node2D" parent="Interactables/Push1"]
+position = Vector2(0, 212)
+
+[node name="Push2" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+position = Vector2(209, -152)
+sprite_frames = SubResource("SpriteFrames_yskkr")
+animation = &"Unavailable"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = 10
+unavailableIfAlone = true
+pushPosition = NodePath("Node2D")
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Push2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push2/ActivationArea"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_mrqb5")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Push2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push2/HurtArea"]
+shape = SubResource("RectangleShape2D_7mc7d")
+
+[node name="Node2D" type="Node2D" parent="Interactables/Push2"]
+position = Vector2(0, 212)
+
+[node name="Push3" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+position = Vector2(395, -152)
+sprite_frames = SubResource("SpriteFrames_yskkr")
+animation = &"Unavailable"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = 10
+unavailableIfAlone = true
+pushPosition = NodePath("Node2D")
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Push3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push3/ActivationArea"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_mrqb5")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Push3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push3/HurtArea"]
+shape = SubResource("RectangleShape2D_7mc7d")
+
+[node name="Node2D" type="Node2D" parent="Interactables/Push3"]
+position = Vector2(0, 212)
+
+[node name="Push4" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+position = Vector2(416, 185)
+sprite_frames = SubResource("SpriteFrames_yskkr")
+animation = &"Unavailable"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = null
+unavailableIfAlone = true
+pushPosition = NodePath("Node2D")
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Push4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push4/ActivationArea"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_mrqb5")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Push4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push4/HurtArea"]
+shape = SubResource("RectangleShape2D_7mc7d")
+
+[node name="Node2D" type="Node2D" parent="Interactables/Push4"]
+position = Vector2(0, 62)
+
+[node name="Push5" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+position = Vector2(272, 185)
+sprite_frames = SubResource("SpriteFrames_yskkr")
+animation = &"Unavailable"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = null
+unavailableIfAlone = true
+pushPosition = NodePath("Node2D")
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Push5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push5/ActivationArea"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_mrqb5")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Push5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push5/HurtArea"]
+shape = SubResource("RectangleShape2D_7mc7d")
+
+[node name="Node2D" type="Node2D" parent="Interactables/Push5"]
+position = Vector2(0, 62)
+
+[node name="Push6" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+position = Vector2(-314, 185)
+sprite_frames = SubResource("SpriteFrames_yskkr")
+animation = &"Unavailable"
+script = ExtResource("7_kvrt3")
+activationArea = NodePath("ActivationArea")
+hurtArea = NodePath("HurtArea")
+damage = null
+unavailableIfAlone = true
+pushPosition = NodePath("Node2D")
+
+[node name="ActivationArea" type="Area2D" parent="Interactables/Push6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push6/ActivationArea"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_mrqb5")
+
+[node name="HurtArea" type="Area2D" parent="Interactables/Push6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Push6/HurtArea"]
+shape = SubResource("RectangleShape2D_7mc7d")
+
+[node name="Node2D" type="Node2D" parent="Interactables/Push6"]
+position = Vector2(0, 62)
+
+[node name="Cars" type="Node2D" parent="."]
+position = Vector2(0, 222)
+
+[node name="Car" type="AnimatedSprite2D" parent="Cars" node_paths=PackedStringArray("beginningPosition", "endPosition", "hitArea", "pushToPosition")]
+position = Vector2(-630, 0)
+sprite_frames = SubResource("SpriteFrames_oeb8i")
+frame_progress = 0.326758
+script = ExtResource("11_s6y1u")
+beginningPosition = NodePath("../Beginning")
+endPosition = NodePath("../End")
+hitArea = NodePath("HitArea")
+pushToPosition = NodePath("PushToPosition")
+
+[node name="HitArea" type="Area2D" parent="Cars/Car"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cars/Car/HitArea"]
+position = Vector2(-33, 15.5)
+shape = SubResource("RectangleShape2D_d7cy4")
+
+[node name="PushToPosition" type="Node2D" parent="Cars/Car"]
+position = Vector2(-70, -58)
+
+[node name="Beginning" type="Node2D" parent="Cars"]
+position = Vector2(630, 0)
+
+[node name="End" type="Node2D" parent="Cars"]
+position = Vector2(-630, 0)
