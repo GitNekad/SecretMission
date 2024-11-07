@@ -514,9 +514,16 @@ position = Vector2(-480, 0)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_vqimw")
 
-[node name="Player" type="Node2D" parent="."]
+[node name="Player0" type="Node2D" parent="."]
 top_level = true
 script = ExtResource("2_gnrfg")
+spawnPosition = Vector2i(-263, 152)
+
+[node name="Player1" type="Node2D" parent="."]
+top_level = true
+script = ExtResource("2_gnrfg")
+player = 1
+spawnPosition = Vector2i(-263, 172)
 
 [node name="NPCs" type="Node2D" parent="."]
 top_level = true
