@@ -11,11 +11,11 @@ func _ready():
 	instantiateCharacter(Vector2i(-263,152))
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("interact_P0"):
 		interact()
 
 func get_input():
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir = Input.get_vector("walk_left_P0", "walk_right_P0", "walk_up_P0", "walk_down_P0")
 	characterVelocity = input_dir * CHARACTER_SPEED
 	animateSprite()
 

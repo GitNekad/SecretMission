@@ -14,6 +14,7 @@ var waitingTimer : SceneTreeTimer
 var stunTimer : SceneTreeTimer
 
 var CHARACTER_SPEED = 75
+var PUSH_SPEED = 300
 var MIN_WAIT_TIME = 10
 var MAX_WAIT_TIME = 30
 var MIN_STUN_TIME = 5
@@ -39,9 +40,12 @@ func _physics_process(delta):
 	animateSprite()
 
 func setNewTarget():
+	var oldPoi = currentPoi
+	if oldPoi != null:
+		oldPoi.available = true
 	moving = true
 	currentPoi = pointsOfInterest.pick_random()
-	while !currentPoi.available:
+	while !currentPoi.available or currentPoi == oldPoi:
 		currentPoi = pointsOfInterest.pick_random()
 	currentPoi.available = false
 	var newPosition = currentPoi.global_position
@@ -87,10 +91,18 @@ func pushTo(pushPosition : Node2D, damage):
 	sprite.play("Stun")
 	if waitingTimer != null:
 		waitingTimer.time_left = 0
+	currentPoi.available = true
+	var initialPosition = global_position
+	var finalPosition = pushPosition.global_position
+	var lastDistance = global_position.distance_to(finalPosition)
+	while lastDistance > global_position.distance_to(finalPosition):
+		global_position = global_position + (finalPosition-global_position).normalized()*0.01*PUSH_SPEED
+		lastDistance = global_position.distance_to(finalPosition)
+		await get_tree().create_timer(0.01).timeout
+	
 	global_position = pushPosition.global_position
 	health -= damage
 	healthBar.value = health
-	currentPoi.available = true
 	await stunTimer.timeout
 	stun = false
 	setNewTarget()
