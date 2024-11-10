@@ -94,13 +94,13 @@ func pushTo(pushPosition : Node2D, damage):
 	currentPoi.available = true
 	var initialPosition = global_position
 	var finalPosition = pushPosition.global_position
-	var lastDistance = global_position.distance_to(finalPosition)
+	var lastDistance = global_position.distance_to(finalPosition) + 0.01
 	while lastDistance > global_position.distance_to(finalPosition):
-		global_position = global_position + (finalPosition-global_position).normalized()*0.01*PUSH_SPEED
 		lastDistance = global_position.distance_to(finalPosition)
+		global_position = global_position + (finalPosition-global_position).normalized()*0.01*PUSH_SPEED
 		await get_tree().create_timer(0.01).timeout
 	
-	global_position = pushPosition.global_position
+	global_position = finalPosition
 	health -= damage
 	healthBar.value = health
 	await stunTimer.timeout
@@ -109,3 +109,7 @@ func pushTo(pushPosition : Node2D, damage):
 
 func mapReady():
 	READY = true
+
+func setHealth(value):
+	health = value
+	healthBar.value = health

@@ -1,0 +1,502 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciyfkirc8qjm4"]
+
+[ext_resource type="Script" path="res://Menus/SelectPlayersBehaviour.gd" id="1_ennse"]
+[ext_resource type="Script" path="res://Menus/PlayerHolder.gd" id="2_e7yyy"]
+
+[node name="SelectPlayers" type="Control" node_paths=PackedStringArray("playerHolders", "playButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ennse")
+playerHolders = [NodePath("PlayerContainers/TopPlayers/PlayerHolder"), NodePath("PlayerContainers/TopPlayers/PlayerHolder2"), NodePath("PlayerContainers/TopPlayers/PlayerHolder3"), NodePath("PlayerContainers/TopPlayers/PlayerHolder4"), NodePath("PlayerContainers/BotPlayers/PlayerHolder"), NodePath("PlayerContainers/BotPlayers/PlayerHolder2"), NodePath("PlayerContainers/BotPlayers/PlayerHolder3"), NodePath("PlayerContainers/BotPlayers/PlayerHolder4")]
+playButton = NodePath("Play")
+
+[node name="PlayerContainers" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -606.0
+offset_top = -190.0
+offset_right = 606.0
+offset_bottom = 414.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopPlayers" type="HBoxContainer" parent="PlayerContainers"]
+layout_mode = 2
+
+[node name="PlayerHolder" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+color = Color(0.012, 0.0642, 0.12, 1)
+script = ExtResource("2_e7yyy")
+readyForNewPlayer = NodePath("Ready For New Player")
+playerReady = NodePath("Player Ready")
+
+[node name="Ready For New Player" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder/Ready For New Player"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Press A to join"
+
+[node name="Player Ready" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder/Player Ready"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Player 1 Ready"
+
+[node name="PlayerHolder2" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+color = Color(0.012, 0.0642, 0.12, 1)
+script = ExtResource("2_e7yyy")
+readyForNewPlayer = NodePath("Ready For New Player")
+playerReady = NodePath("Player Ready")
+
+[node name="Ready For New Player" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder2/Ready For New Player"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Press A to join"
+
+[node name="Player Ready" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder2/Player Ready"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Player 1 Ready"
+
+[node name="PlayerHolder3" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+color = Color(0.012, 0.0642, 0.12, 1)
+script = ExtResource("2_e7yyy")
+readyForNewPlayer = NodePath("Ready For New Player")
+playerReady = NodePath("Player Ready")
+
+[node name="Ready For New Player" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder3/Ready For New Player"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Press A to join"
+
+[node name="Player Ready" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder3/Player Ready"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Player 1 Ready"
+
+[node name="PlayerHolder4" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+color = Color(0.012, 0.0642, 0.12, 1)
+script = ExtResource("2_e7yyy")
+readyForNewPlayer = NodePath("Ready For New Player")
+playerReady = NodePath("Player Ready")
+
+[node name="Ready For New Player" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder4"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder4/Ready For New Player"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Press A to join"
+
+[node name="Player Ready" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder4"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder4/Player Ready"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Player 1 Ready"
+
+[node name="BotPlayers" type="HBoxContainer" parent="PlayerContainers"]
+layout_mode = 2
+
+[node name="PlayerHolder" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+color = Color(0.012, 0.0642, 0.12, 1)
+script = ExtResource("2_e7yyy")
+readyForNewPlayer = NodePath("Ready For New Player")
+playerReady = NodePath("Player Ready")
+
+[node name="Ready For New Player" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder/Ready For New Player"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Press A to join"
+
+[node name="Player Ready" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder/Player Ready"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Player 1 Ready"
+
+[node name="PlayerHolder2" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+color = Color(0.012, 0.0642, 0.12, 1)
+script = ExtResource("2_e7yyy")
+readyForNewPlayer = NodePath("Ready For New Player")
+playerReady = NodePath("Player Ready")
+
+[node name="Ready For New Player" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder2/Ready For New Player"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Press A to join"
+
+[node name="Player Ready" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder2/Player Ready"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Player 1 Ready"
+
+[node name="PlayerHolder3" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+color = Color(0.012, 0.0642, 0.12, 1)
+script = ExtResource("2_e7yyy")
+readyForNewPlayer = NodePath("Ready For New Player")
+playerReady = NodePath("Player Ready")
+
+[node name="Ready For New Player" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder3/Ready For New Player"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Press A to join"
+
+[node name="Player Ready" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder3/Player Ready"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Player 1 Ready"
+
+[node name="PlayerHolder4" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+color = Color(0.012, 0.0642, 0.12, 1)
+script = ExtResource("2_e7yyy")
+readyForNewPlayer = NodePath("Ready For New Player")
+playerReady = NodePath("Player Ready")
+
+[node name="Ready For New Player" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder4"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder4/Ready For New Player"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Press A to join"
+
+[node name="Player Ready" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder4"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder4/Player Ready"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.5
+offset_top = -54.0
+offset_right = 133.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 39
+text = "Player 1 Ready"
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.5
+offset_top = -90.0
+offset_right = 54.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[connection signal="pressed" from="Play" to="." method="startGame"]

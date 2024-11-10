@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://buujl5cc1ro2s"]
+
+[ext_resource type="Texture2D" uid="uid://s6ton31p2dw" path="res://Menus/Pointer.png" id="1_124gk"]
+[ext_resource type="Script" path="res://Menus/PointerBehaviour.gd" id="2_sbriq"]
+
+[node name="Pointer" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_124gk")
+script = ExtResource("2_sbriq")

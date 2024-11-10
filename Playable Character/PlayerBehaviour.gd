@@ -13,6 +13,9 @@ var _playerControlsAffix : String
 
 func _ready():
 	instantiateCharacter(spawnPosition)
+	if GameManager.players.has(player):
+		_playerControlsAffix = GameManager.players[player]
+		return
 	match player:
 		0:
 			_playerControlsAffix = "P0"
@@ -42,7 +45,7 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	character.move_and_collide(characterVelocity * delta)
+	character.move_and_collide(characterVelocity * delta, false, 0.7, false)
 
 func instantiateCharacter(position: Vector2i):
 	character = _characterPack.instantiate() 
