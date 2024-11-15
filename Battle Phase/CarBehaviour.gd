@@ -20,6 +20,8 @@ func _ready():
 	startMovingAfterTime()
 
 func _process(delta):
+	if GameManager.showingPanel:
+		return
 	if isMoving:
 		position.x = position.x - delta * currentSpeed
 		if position.x < endPosition.position.x:

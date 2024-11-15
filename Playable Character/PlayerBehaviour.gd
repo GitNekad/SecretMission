@@ -1,7 +1,7 @@
 extends Node
+class_name PlayerBehaviour
 
 @export var player : int
-@export var spawnPosition : Vector2i
 
 var character : PlayableCharacterBehaviour
 var characterVelocity : Vector2
@@ -11,8 +11,7 @@ var _characterPack = preload("res://Playable Character/PlayableCharacter.tscn")
 var CHARACTER_SPEED = 300
 var _playerControlsAffix : String
 
-func _ready():
-	instantiateCharacter(spawnPosition)
+func setControlAffix():
 	if GameManager.players.has(player):
 		_playerControlsAffix = GameManager.players[player]
 		return
@@ -35,6 +34,8 @@ func _ready():
 			_playerControlsAffix = "P7"
 
 func _input(event):
+	if GameManager.showingPanel:
+		return
 	if event.is_action_pressed("interact_"+_playerControlsAffix):
 		interact()
 
@@ -44,13 +45,19 @@ func get_input():
 	animateSprite()
 
 func _physics_process(delta):
+	if GameManager.showingPanel:
+		return
 	get_input()
 	character.move_and_collide(characterVelocity * delta, false, 0.7, false)
 
-func instantiateCharacter(position: Vector2i):
+func instantiateCharacter(position: Vector2i, playerIndex, hiddenColor = false):
+	player = playerIndex
 	character = _characterPack.instantiate() 
 	self.add_child(character)
 	character.position = position
+	setControlAffix()
+	if GameManager.playerColors.has(playerIndex) and !hiddenColor:
+		character.modulate = GameManager.colors[GameManager.playerColors[playerIndex]]
 
 func animateSprite():
 	var lookingAt : String

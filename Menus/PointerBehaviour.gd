@@ -5,28 +5,32 @@ var pointerVelocity
 var POINTER_SPEED = 450
 var _playerControlsAffix : String
 
-func init(i):
+func init(i, hiddenColor = false):
 	player = i
 	if GameManager.players.has(player):
 		_playerControlsAffix = GameManager.players[player]
-		return
-	match player:
-		0:
-			_playerControlsAffix = "P0"
-		1:
-			_playerControlsAffix = "P1"
-		2:
-			_playerControlsAffix = "P2"
-		3:
-			_playerControlsAffix = "P3"
-		4:
-			_playerControlsAffix = "P4"
-		5:
-			_playerControlsAffix = "P5"
-		6:
-			_playerControlsAffix = "P6"
-		7:
-			_playerControlsAffix = "P7"
+	else:
+		match player:
+			0:
+				_playerControlsAffix = "P0"
+			1:
+				_playerControlsAffix = "P1"
+			2:
+				_playerControlsAffix = "P2"
+			3:
+				_playerControlsAffix = "P3"
+			4:
+				_playerControlsAffix = "P4"
+			5:
+				_playerControlsAffix = "P5"
+			6:
+				_playerControlsAffix = "P6"
+			7:
+				_playerControlsAffix = "P7"
+	if GameManager.playerColors.has(player) and !hiddenColor:
+		modulate = GameManager.colors[GameManager.playerColors[player]]
+	position.x = get_viewport_rect().size.x/2
+	position.y = get_viewport_rect().size.y/2
 
 func get_input():
 	var input_dir = Input.get_vector("walk_left_"+_playerControlsAffix, "walk_right_"+_playerControlsAffix, "walk_up_"+_playerControlsAffix, "walk_down_"+_playerControlsAffix)

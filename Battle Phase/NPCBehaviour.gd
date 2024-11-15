@@ -5,6 +5,7 @@ class_name NPCBehaviour
 @export var pointsOfInterest : Array[Node2D]
 @export var sprite : AnimatedSprite2D
 @export var healthBar : ProgressBar
+@export var sceneBehaviour : BattleSceneBehaviour
 var moving : bool
 var stun : bool = false
 var characterLookingDirection : Vector2 = Vector2(0,1)
@@ -12,6 +13,7 @@ var currentPoi : POIBehaviour
 var health = 100
 var waitingTimer : SceneTreeTimer
 var stunTimer : SceneTreeTimer
+var index = 0
 
 var CHARACTER_SPEED = 75
 var PUSH_SPEED = 300
@@ -29,6 +31,8 @@ func _ready():
 	mapReady()
 
 func _physics_process(delta):
+	if GameManager.showingPanel:
+		return
 	if !READY or stun:
 		return
 	if navigationAgent.is_target_reachable():
@@ -80,9 +84,8 @@ func animateSprite():
 		sprite.play(lookingAt+movement)
 
 func hurt(value):
-	health -= value
-	healthBar.value = health
 	pushTo(self, 0)
+	reduceHealth(value)
 
 func pushTo(pushPosition : Node2D, damage):
 	var stunTime = randf_range(MIN_STUN_TIME, MAX_STUN_TIME)
@@ -101,8 +104,7 @@ func pushTo(pushPosition : Node2D, damage):
 		await get_tree().create_timer(0.01).timeout
 	
 	global_position = finalPosition
-	health -= damage
-	healthBar.value = health
+	reduceHealth(damage)
 	await stunTimer.timeout
 	stun = false
 	setNewTarget()
@@ -113,3 +115,21 @@ func mapReady():
 func setHealth(value):
 	health = value
 	healthBar.value = health
+	healthBar.max_value = GameManager.maxHealth
+	if health <=0:
+		exile()
+
+func reduceHealth(damage):
+	health -= damage
+	healthBar.value = health
+	if health <=0:
+		exile()
+		sceneBehaviour.showIncapacitatedNPCPanel(index)
+
+func exile():
+	if currentPoi != null:
+		currentPoi.available = true
+		currentPoi = null
+	READY = false
+	position = Vector2i(0,0)
+	visible = false

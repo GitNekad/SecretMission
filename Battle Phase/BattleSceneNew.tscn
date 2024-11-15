@@ -1,9 +1,7 @@
-[gd_scene load_steps=72 format=3 uid="uid://c4tkfrv5ks78t"]
+[gd_scene load_steps=96 format=3 uid="uid://c4tkfrv5ks78t"]
 
 [ext_resource type="Texture2D" uid="uid://c482dn3j0gumy" path="res://Battle Phase/BattleSceneNew.jpg" id="1_5rj5m"]
 [ext_resource type="Script" path="res://Battle Phase/BattleSceneBehaviour.gd" id="1_jgtrp"]
-[ext_resource type="PackedScene" uid="uid://ctiam47k6g1ch" path="res://Playable Character/Player.tscn" id="2_0dbkk"]
-[ext_resource type="Script" path="res://Playable Character/PlayerBehaviour.gd" id="2_gnrfg"]
 [ext_resource type="Script" path="res://Battle Phase/NPCBehaviour.gd" id="3_t3llv"]
 [ext_resource type="SpriteFrames" uid="uid://sw6cjor5dhlk" path="res://Battle Phase/Sprites/Axolotl.tres" id="5_j1r3r"]
 [ext_resource type="Script" path="res://Battle Phase/POIBehaviour.gd" id="5_o1k0o"]
@@ -21,7 +19,15 @@
 [ext_resource type="SpriteFrames" uid="uid://outxf0o7bcbj" path="res://Battle Phase/Sprites/Ram.tres" id="11_vph66"]
 [ext_resource type="SpriteFrames" uid="uid://bdpskxhsanga1" path="res://Battle Phase/Sprites/Rat.tres" id="12_xqayn"]
 [ext_resource type="Texture2D" uid="uid://bwui84i81jm58" path="res://Battle Phase/Clock_Empty.png" id="21_3vv7n"]
+[ext_resource type="Texture2D" uid="uid://csfrp1k8fkr3o" path="res://Battle Phase/Axolotl.png" id="21_s0bew"]
+[ext_resource type="Texture2D" uid="uid://co004fcth03u2" path="res://Battle Phase/Cat.png" id="22_67uad"]
 [ext_resource type="Texture2D" uid="uid://dxgwo0hv321w0" path="res://Battle Phase/Clock_Filled.png" id="22_g1ctl"]
+[ext_resource type="Texture2D" uid="uid://bix3pbs85ioha" path="res://Battle Phase/Hare.png" id="23_rmms2"]
+[ext_resource type="Texture2D" uid="uid://cqrtnujv4ixry" path="res://Battle Phase/Monki.png" id="24_3p6ta"]
+[ext_resource type="Texture2D" uid="uid://beci473beidd0" path="res://Battle Phase/Owl.png" id="25_vnqsb"]
+[ext_resource type="Texture2D" uid="uid://clo4dk1i54gik" path="res://Battle Phase/Penwin.png" id="26_i5mcx"]
+[ext_resource type="Texture2D" uid="uid://c4vhbeweoqvjw" path="res://Battle Phase/Ram.png" id="27_meurk"]
+[ext_resource type="Texture2D" uid="uid://dhse0oxauep2v" path="res://Battle Phase/Rat.png" id="28_iysat"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x0kkm"]
 
@@ -353,10 +359,174 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7cy4"]
 size = Vector2(160, 79)
 
-[node name="BattleScene" type="Node2D" node_paths=PackedStringArray("npcs", "timer")]
+[sub_resource type="LabelSettings" id="LabelSettings_grsbl"]
+font_size = 30
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpvvs"]
+atlas = ExtResource("21_s0bew")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esq1g"]
+atlas = ExtResource("21_s0bew")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utx8q"]
+atlas = ExtResource("22_67uad")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hpc5"]
+atlas = ExtResource("22_67uad")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p22x"]
+atlas = ExtResource("23_rmms2")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlt4o"]
+atlas = ExtResource("23_rmms2")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odi5v"]
+atlas = ExtResource("24_3p6ta")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ge0u"]
+atlas = ExtResource("24_3p6ta")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wn33"]
+atlas = ExtResource("25_vnqsb")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhgpw"]
+atlas = ExtResource("25_vnqsb")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0ipd"]
+atlas = ExtResource("26_i5mcx")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6nau"]
+atlas = ExtResource("26_i5mcx")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66e7p"]
+atlas = ExtResource("27_meurk")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhn7n"]
+atlas = ExtResource("27_meurk")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55eer"]
+atlas = ExtResource("28_iysat")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88xby"]
+atlas = ExtResource("28_iysat")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ul7fl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpvvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esq1g")
+}],
+"loop": true,
+"name": &"Axolotl",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utx8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hpc5")
+}],
+"loop": true,
+"name": &"Cat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p22x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlt4o")
+}],
+"loop": true,
+"name": &"Hare",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odi5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ge0u")
+}],
+"loop": true,
+"name": &"Monki",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wn33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhgpw")
+}],
+"loop": true,
+"name": &"Owl",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0ipd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6nau")
+}],
+"loop": true,
+"name": &"Penwin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66e7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhn7n")
+}],
+"loop": true,
+"name": &"Ram",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55eer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88xby")
+}],
+"loop": true,
+"name": &"Rat",
+"speed": 5.0
+}]
+
+[node name="BattleScene" type="Node2D" node_paths=PackedStringArray("npcs", "timer", "playerHolder", "playerSpawnPoints", "npcIncapacitatedPanel", "xWasIncapacitated", "incapacitatedSprite", "statusLabel")]
 script = ExtResource("1_jgtrp")
 npcs = [NodePath("NPCs/NPC1"), NodePath("NPCs/NPC2"), NodePath("NPCs/NPC3"), NodePath("NPCs/NPC4"), NodePath("NPCs/NPC5"), NodePath("NPCs/NPC6"), NodePath("NPCs/NPC7"), NodePath("NPCs/NPC8")]
 timer = NodePath("Timer/TextureProgressBar")
+playerHolder = NodePath("Players")
+playerSpawnPoints = [NodePath("PlayerSpawnPoints/Node2D"), NodePath("PlayerSpawnPoints/Node2D2"), NodePath("PlayerSpawnPoints/Node2D3"), NodePath("PlayerSpawnPoints/Node2D4"), NodePath("PlayerSpawnPoints/Node2D5"), NodePath("PlayerSpawnPoints/Node2D6"), NodePath("PlayerSpawnPoints/Node2D7"), NodePath("PlayerSpawnPoints/Node2D8")]
+npcIncapacitatedPanel = NodePath("Npc Incapacitated Panel")
+xWasIncapacitated = NodePath("Npc Incapacitated Panel/BG/X was incapacitated")
+incapacitatedSprite = NodePath("Npc Incapacitated Panel/BG/AnimatedSprite2D")
+statusLabel = NodePath("Npc Incapacitated Panel/BG/Status")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -403,24 +573,17 @@ position = Vector2(-480, 0)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_vqimw")
 
-[node name="Player0" parent="." instance=ExtResource("2_0dbkk")]
-
-[node name="Player1" type="Node2D" parent="."]
-top_level = true
-script = ExtResource("2_gnrfg")
-player = 1
-spawnPosition = Vector2i(-263, 172)
-
 [node name="NPCs" type="Node2D" parent="."]
 top_level = true
 
-[node name="NPC1" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar")]
+[node name="NPC1" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 position = Vector2(-151.54, 0)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
 sprite = NodePath("AnimatedSprite2D")
 healthBar = NodePath("HealthBar")
+sceneBehaviour = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC1"]
 position = Vector2(0, 7)
@@ -445,13 +608,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_2oe0a")
 value = 99.96
 show_percentage = false
 
-[node name="NPC2" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar")]
+[node name="NPC2" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 position = Vector2(-197, 34.22)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
 sprite = NodePath("AnimatedSprite2D")
 healthBar = NodePath("HealthBar")
+sceneBehaviour = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC2"]
 position = Vector2(0, 7)
@@ -476,13 +640,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_2oe0a")
 value = 99.96
 show_percentage = false
 
-[node name="NPC3" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar")]
+[node name="NPC3" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 position = Vector2(160, 0)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
 sprite = NodePath("AnimatedSprite2D")
 healthBar = NodePath("HealthBar")
+sceneBehaviour = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC3"]
 position = Vector2(0, 7)
@@ -507,13 +672,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_2oe0a")
 value = 99.96
 show_percentage = false
 
-[node name="NPC4" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar")]
+[node name="NPC4" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 position = Vector2(180, 100)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
 sprite = NodePath("AnimatedSprite2D")
 healthBar = NodePath("HealthBar")
+sceneBehaviour = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC4"]
 position = Vector2(0, 7)
@@ -538,13 +704,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_2oe0a")
 value = 99.96
 show_percentage = false
 
-[node name="NPC5" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar")]
+[node name="NPC5" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 position = Vector2(-200, 150)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
 sprite = NodePath("AnimatedSprite2D")
 healthBar = NodePath("HealthBar")
+sceneBehaviour = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC5"]
 position = Vector2(0, 7)
@@ -569,13 +736,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_2oe0a")
 value = 99.96
 show_percentage = false
 
-[node name="NPC6" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar")]
+[node name="NPC6" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 position = Vector2(-300, 100)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
 sprite = NodePath("AnimatedSprite2D")
 healthBar = NodePath("HealthBar")
+sceneBehaviour = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC6"]
 position = Vector2(0, 7)
@@ -600,13 +768,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_2oe0a")
 value = 99.96
 show_percentage = false
 
-[node name="NPC7" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar")]
+[node name="NPC7" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 position = Vector2(300, 180)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
 sprite = NodePath("AnimatedSprite2D")
 healthBar = NodePath("HealthBar")
+sceneBehaviour = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC7"]
 position = Vector2(0, 7)
@@ -631,13 +800,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_2oe0a")
 value = 99.96
 show_percentage = false
 
-[node name="NPC8" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar")]
+[node name="NPC8" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 position = Vector2(350, 155)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
 sprite = NodePath("AnimatedSprite2D")
 healthBar = NodePath("HealthBar")
+sceneBehaviour = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC8"]
 position = Vector2(0, 7)
@@ -1018,6 +1188,7 @@ position = Vector2(0, 54)
 position = Vector2(0, 250.995)
 
 [node name="Car" type="AnimatedSprite2D" parent="Cars" node_paths=PackedStringArray("beginningPosition", "endPosition", "hitArea", "pushToPosition")]
+z_index = 1
 position = Vector2(-630, 0)
 sprite_frames = SubResource("SpriteFrames_oeb8i")
 frame_progress = 0.326758
@@ -1056,3 +1227,103 @@ fill_mode = 5
 radial_center_offset = Vector2(0, 10)
 texture_under = ExtResource("21_3vv7n")
 texture_progress = ExtResource("22_g1ctl")
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="PlayerSpawnPoints" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-30, 200)
+
+[node name="Node2D2" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-90, 200)
+
+[node name="Node2D3" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-150, 200)
+
+[node name="Node2D4" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-210, 200)
+
+[node name="Node2D5" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(30, 200)
+
+[node name="Node2D6" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(90, 200)
+
+[node name="Node2D7" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(150, 200)
+
+[node name="Node2D8" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(210, 200)
+
+[node name="Npc Incapacitated Panel" type="Node2D" parent="."]
+visible = false
+z_index = 500
+
+[node name="BG" type="ColorRect" parent="Npc Incapacitated Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.517647)
+
+[node name="X was incapacitated" type="Label" parent="Npc Incapacitated Panel/BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -120.0
+offset_right = 202.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Someone was incapacitated"
+label_settings = SubResource("LabelSettings_grsbl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Npc Incapacitated Panel/BG"]
+position = Vector2(480, 270)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_ul7fl")
+animation = &"Ram"
+
+[node name="They were ___" type="Label" parent="Npc Incapacitated Panel/BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = 80.0
+offset_right = 202.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "They were ..."
+label_settings = SubResource("LabelSettings_grsbl")
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="Npc Incapacitated Panel/BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = 130.0
+offset_right = 202.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "No one's objective"
+label_settings = SubResource("LabelSettings_grsbl")
+horizontal_alignment = 1

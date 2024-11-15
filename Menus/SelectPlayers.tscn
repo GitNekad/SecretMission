@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciyfkirc8qjm4"]
+[gd_scene load_steps=8 format=3 uid="uid://ciyfkirc8qjm4"]
 
 [ext_resource type="Script" path="res://Menus/SelectPlayersBehaviour.gd" id="1_ennse"]
 [ext_resource type="Script" path="res://Menus/PlayerHolder.gd" id="2_e7yyy"]
+[ext_resource type="SpriteFrames" uid="uid://cynanwwfv68qp" path="res://Playable Character/PlayableCharacter.tres" id="3_o5xik"]
+[ext_resource type="Texture2D" uid="uid://8o0e5f4s10pb" path="res://Menus/Arrow.png" id="4_3pvpy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m1o3m"]
+font_size = 75
+
+[sub_resource type="LabelSettings" id="LabelSettings_tuk6c"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptu3v"]
+font_size = 34
 
 [node name="SelectPlayers" type="Control" node_paths=PackedStringArray("playerHolders", "playButton")]
 layout_mode = 3
@@ -14,6 +25,21 @@ script = ExtResource("1_ennse")
 playerHolders = [NodePath("PlayerContainers/TopPlayers/PlayerHolder"), NodePath("PlayerContainers/TopPlayers/PlayerHolder2"), NodePath("PlayerContainers/TopPlayers/PlayerHolder3"), NodePath("PlayerContainers/TopPlayers/PlayerHolder4"), NodePath("PlayerContainers/BotPlayers/PlayerHolder"), NodePath("PlayerContainers/BotPlayers/PlayerHolder2"), NodePath("PlayerContainers/BotPlayers/PlayerHolder3"), NodePath("PlayerContainers/BotPlayers/PlayerHolder4")]
 playButton = NodePath("Play")
 
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.145098, 0.168627, 0.203922, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 305.0
+text = "Grab some friends and get ready to play"
+label_settings = SubResource("LabelSettings_m1o3m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PlayerContainers" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -22,22 +48,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -606.0
-offset_top = -190.0
+offset_top = -240.0
 offset_right = 606.0
-offset_bottom = 414.0
+offset_bottom = 364.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TopPlayers" type="HBoxContainer" parent="PlayerContainers"]
 layout_mode = 2
 
-[node name="PlayerHolder" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+[node name="PlayerHolder" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 color = Color(0.012, 0.0642, 0.12, 1)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
+waitingForPlayerSetup = NodePath("Waiting For Player Setup")
 playerReady = NodePath("Player Ready")
+playerColorShow = NodePath("Waiting For Player Setup/AnimatedSprite2D")
+playerReadyColorShow = NodePath("Player Ready/AnimatedSprite2D")
+playerReadyText = NodePath("Player Ready/Label")
 
 [node name="Ready For New Player" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder"]
 visible = false
@@ -55,13 +85,63 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -133.5
-offset_top = -54.0
-offset_right = 133.5
+offset_left = -149.0
+offset_top = -300.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Press A to join"
+text = "Press
+any button
+to join"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Waiting For Player Setup" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder/Waiting For Player Setup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_right = 155.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 39
+text = "Select your color"
+label_settings = SubResource("LabelSettings_tuk6c")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/TopPlayers/PlayerHolder/Waiting For Player Setup"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Walk"
+
+[node name="ArrowRight" type="TextureRect" parent="PlayerContainers/TopPlayers/PlayerHolder/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 144.0
+offset_right = 281.0
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+
+[node name="ArrowLeft" type="TextureRect" parent="PlayerContainers/TopPlayers/PlayerHolder/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 17.09
+offset_top = 144.0
+offset_right = 57.09
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+flip_h = true
 
 [node name="Player Ready" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder"]
 visible = false
@@ -85,15 +165,28 @@ offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Player 1 Ready"
+text = "Aquamarine ready"
+label_settings = SubResource("LabelSettings_ptu3v")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PlayerHolder2" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/TopPlayers/PlayerHolder/Player Ready"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Idle"
+
+[node name="PlayerHolder2" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 color = Color(0.012, 0.0642, 0.12, 1)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
+waitingForPlayerSetup = NodePath("Waiting For Player Setup")
 playerReady = NodePath("Player Ready")
+playerColorShow = NodePath("Waiting For Player Setup/AnimatedSprite2D")
+playerReadyColorShow = NodePath("Player Ready/AnimatedSprite2D")
+playerReadyText = NodePath("Player Ready/Label")
 
 [node name="Ready For New Player" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder2"]
 visible = false
@@ -111,13 +204,63 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -133.5
-offset_top = -54.0
-offset_right = 133.5
+offset_left = -149.0
+offset_top = -300.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Press A to join"
+text = "Press
+any button
+to join"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Waiting For Player Setup" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder2/Waiting For Player Setup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_right = 155.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 39
+text = "Select your color"
+label_settings = SubResource("LabelSettings_tuk6c")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/TopPlayers/PlayerHolder2/Waiting For Player Setup"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Walk"
+
+[node name="ArrowRight" type="TextureRect" parent="PlayerContainers/TopPlayers/PlayerHolder2/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 144.0
+offset_right = 281.0
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+
+[node name="ArrowLeft" type="TextureRect" parent="PlayerContainers/TopPlayers/PlayerHolder2/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 17.09
+offset_top = 144.0
+offset_right = 57.09
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+flip_h = true
 
 [node name="Player Ready" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder2"]
 visible = false
@@ -141,15 +284,28 @@ offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Player 1 Ready"
+text = "Aquamarine ready"
+label_settings = SubResource("LabelSettings_ptu3v")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PlayerHolder3" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/TopPlayers/PlayerHolder2/Player Ready"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Idle"
+
+[node name="PlayerHolder3" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 color = Color(0.012, 0.0642, 0.12, 1)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
+waitingForPlayerSetup = NodePath("Waiting For Player Setup")
 playerReady = NodePath("Player Ready")
+playerColorShow = NodePath("Waiting For Player Setup/AnimatedSprite2D")
+playerReadyColorShow = NodePath("Player Ready/AnimatedSprite2D")
+playerReadyText = NodePath("Player Ready/Label")
 
 [node name="Ready For New Player" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder3"]
 visible = false
@@ -167,13 +323,63 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -133.5
-offset_top = -54.0
-offset_right = 133.5
+offset_left = -149.0
+offset_top = -300.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Press A to join"
+text = "Press
+any button
+to join"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Waiting For Player Setup" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder3/Waiting For Player Setup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_right = 155.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 39
+text = "Select your color"
+label_settings = SubResource("LabelSettings_tuk6c")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/TopPlayers/PlayerHolder3/Waiting For Player Setup"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Walk"
+
+[node name="ArrowRight" type="TextureRect" parent="PlayerContainers/TopPlayers/PlayerHolder3/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 144.0
+offset_right = 281.0
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+
+[node name="ArrowLeft" type="TextureRect" parent="PlayerContainers/TopPlayers/PlayerHolder3/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 17.09
+offset_top = 144.0
+offset_right = 57.09
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+flip_h = true
 
 [node name="Player Ready" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder3"]
 visible = false
@@ -197,15 +403,28 @@ offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Player 1 Ready"
+text = "Aquamarine ready"
+label_settings = SubResource("LabelSettings_ptu3v")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PlayerHolder4" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/TopPlayers/PlayerHolder3/Player Ready"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Idle"
+
+[node name="PlayerHolder4" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 color = Color(0.012, 0.0642, 0.12, 1)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
+waitingForPlayerSetup = NodePath("Waiting For Player Setup")
 playerReady = NodePath("Player Ready")
+playerColorShow = NodePath("Waiting For Player Setup/AnimatedSprite2D")
+playerReadyColorShow = NodePath("Player Ready/AnimatedSprite2D")
+playerReadyText = NodePath("Player Ready/Label")
 
 [node name="Ready For New Player" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder4"]
 visible = false
@@ -223,13 +442,63 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -133.5
-offset_top = -54.0
-offset_right = 133.5
+offset_left = -149.0
+offset_top = -300.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Press A to join"
+text = "Press
+any button
+to join"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Waiting For Player Setup" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder4"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/TopPlayers/PlayerHolder4/Waiting For Player Setup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_right = 155.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 39
+text = "Select your color"
+label_settings = SubResource("LabelSettings_tuk6c")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/TopPlayers/PlayerHolder4/Waiting For Player Setup"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Walk"
+
+[node name="ArrowRight" type="TextureRect" parent="PlayerContainers/TopPlayers/PlayerHolder4/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 144.0
+offset_right = 281.0
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+
+[node name="ArrowLeft" type="TextureRect" parent="PlayerContainers/TopPlayers/PlayerHolder4/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 17.09
+offset_top = 144.0
+offset_right = 57.09
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+flip_h = true
 
 [node name="Player Ready" type="Control" parent="PlayerContainers/TopPlayers/PlayerHolder4"]
 visible = false
@@ -253,18 +522,31 @@ offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Player 1 Ready"
+text = "Aquamarine ready"
+label_settings = SubResource("LabelSettings_ptu3v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/TopPlayers/PlayerHolder4/Player Ready"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Idle"
 
 [node name="BotPlayers" type="HBoxContainer" parent="PlayerContainers"]
 layout_mode = 2
 
-[node name="PlayerHolder" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+[node name="PlayerHolder" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 color = Color(0.012, 0.0642, 0.12, 1)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
+waitingForPlayerSetup = NodePath("Waiting For Player Setup")
 playerReady = NodePath("Player Ready")
+playerColorShow = NodePath("Waiting For Player Setup/AnimatedSprite2D")
+playerReadyColorShow = NodePath("Player Ready/AnimatedSprite2D")
+playerReadyText = NodePath("Player Ready/Label")
 
 [node name="Ready For New Player" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder"]
 visible = false
@@ -282,13 +564,63 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -133.5
-offset_top = -54.0
-offset_right = 133.5
+offset_left = -149.0
+offset_top = -300.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Press A to join"
+text = "Press
+any button
+to join"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Waiting For Player Setup" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder/Waiting For Player Setup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_right = 155.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 39
+text = "Select your color"
+label_settings = SubResource("LabelSettings_tuk6c")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/BotPlayers/PlayerHolder/Waiting For Player Setup"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Walk"
+
+[node name="ArrowRight" type="TextureRect" parent="PlayerContainers/BotPlayers/PlayerHolder/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 144.0
+offset_right = 281.0
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+
+[node name="ArrowLeft" type="TextureRect" parent="PlayerContainers/BotPlayers/PlayerHolder/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 17.09
+offset_top = 144.0
+offset_right = 57.09
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+flip_h = true
 
 [node name="Player Ready" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder"]
 visible = false
@@ -312,15 +644,28 @@ offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Player 1 Ready"
+text = "Aquamarine ready"
+label_settings = SubResource("LabelSettings_ptu3v")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PlayerHolder2" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/BotPlayers/PlayerHolder/Player Ready"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Idle"
+
+[node name="PlayerHolder2" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 color = Color(0.012, 0.0642, 0.12, 1)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
+waitingForPlayerSetup = NodePath("Waiting For Player Setup")
 playerReady = NodePath("Player Ready")
+playerColorShow = NodePath("Waiting For Player Setup/AnimatedSprite2D")
+playerReadyColorShow = NodePath("Player Ready/AnimatedSprite2D")
+playerReadyText = NodePath("Player Ready/Label")
 
 [node name="Ready For New Player" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder2"]
 visible = false
@@ -338,13 +683,63 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -133.5
-offset_top = -54.0
-offset_right = 133.5
+offset_left = -149.0
+offset_top = -300.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Press A to join"
+text = "Press
+any button
+to join"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Waiting For Player Setup" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder2/Waiting For Player Setup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_right = 155.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 39
+text = "Select your color"
+label_settings = SubResource("LabelSettings_tuk6c")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/BotPlayers/PlayerHolder2/Waiting For Player Setup"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Walk"
+
+[node name="ArrowRight" type="TextureRect" parent="PlayerContainers/BotPlayers/PlayerHolder2/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 144.0
+offset_right = 281.0
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+
+[node name="ArrowLeft" type="TextureRect" parent="PlayerContainers/BotPlayers/PlayerHolder2/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 17.09
+offset_top = 144.0
+offset_right = 57.09
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+flip_h = true
 
 [node name="Player Ready" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder2"]
 visible = false
@@ -368,15 +763,28 @@ offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Player 1 Ready"
+text = "Aquamarine ready"
+label_settings = SubResource("LabelSettings_ptu3v")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PlayerHolder3" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/BotPlayers/PlayerHolder2/Player Ready"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Idle"
+
+[node name="PlayerHolder3" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 color = Color(0.012, 0.0642, 0.12, 1)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
+waitingForPlayerSetup = NodePath("Waiting For Player Setup")
 playerReady = NodePath("Player Ready")
+playerColorShow = NodePath("Waiting For Player Setup/AnimatedSprite2D")
+playerReadyColorShow = NodePath("Player Ready/AnimatedSprite2D")
+playerReadyText = NodePath("Player Ready/Label")
 
 [node name="Ready For New Player" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder3"]
 visible = false
@@ -394,13 +802,63 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -133.5
-offset_top = -54.0
-offset_right = 133.5
+offset_left = -149.0
+offset_top = -300.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Press A to join"
+text = "Press
+any button
+to join"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Waiting For Player Setup" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder3/Waiting For Player Setup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_right = 155.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 39
+text = "Select your color"
+label_settings = SubResource("LabelSettings_tuk6c")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/BotPlayers/PlayerHolder3/Waiting For Player Setup"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Walk"
+
+[node name="ArrowRight" type="TextureRect" parent="PlayerContainers/BotPlayers/PlayerHolder3/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 144.0
+offset_right = 281.0
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+
+[node name="ArrowLeft" type="TextureRect" parent="PlayerContainers/BotPlayers/PlayerHolder3/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 17.09
+offset_top = 144.0
+offset_right = 57.09
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+flip_h = true
 
 [node name="Player Ready" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder3"]
 visible = false
@@ -424,15 +882,28 @@ offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Player 1 Ready"
+text = "Aquamarine ready"
+label_settings = SubResource("LabelSettings_ptu3v")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PlayerHolder4" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "playerReady")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/BotPlayers/PlayerHolder3/Player Ready"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Idle"
+
+[node name="PlayerHolder4" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 color = Color(0.012, 0.0642, 0.12, 1)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
+waitingForPlayerSetup = NodePath("Waiting For Player Setup")
 playerReady = NodePath("Player Ready")
+playerColorShow = NodePath("Waiting For Player Setup/AnimatedSprite2D")
+playerReadyColorShow = NodePath("Player Ready/AnimatedSprite2D")
+playerReadyText = NodePath("Player Ready/Label")
 
 [node name="Ready For New Player" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder4"]
 visible = false
@@ -450,13 +921,63 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -133.5
-offset_top = -54.0
-offset_right = 133.5
+offset_left = -149.0
+offset_top = -300.0
+offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Press A to join"
+text = "Press
+any button
+to join"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Waiting For Player Setup" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder4"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerContainers/BotPlayers/PlayerHolder4/Waiting For Player Setup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -155.5
+offset_right = 155.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 39
+text = "Select your color"
+label_settings = SubResource("LabelSettings_tuk6c")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/BotPlayers/PlayerHolder4/Waiting For Player Setup"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Walk"
+
+[node name="ArrowRight" type="TextureRect" parent="PlayerContainers/BotPlayers/PlayerHolder4/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 144.0
+offset_right = 281.0
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+
+[node name="ArrowLeft" type="TextureRect" parent="PlayerContainers/BotPlayers/PlayerHolder4/Waiting For Player Setup"]
+layout_mode = 0
+offset_left = 17.09
+offset_top = 144.0
+offset_right = 57.09
+offset_bottom = 184.0
+texture = ExtResource("4_3pvpy")
+flip_h = true
 
 [node name="Player Ready" type="Control" parent="PlayerContainers/BotPlayers/PlayerHolder4"]
 visible = false
@@ -480,7 +1001,16 @@ offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 39
-text = "Player 1 Ready"
+text = "Aquamarine ready"
+label_settings = SubResource("LabelSettings_ptu3v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerContainers/BotPlayers/PlayerHolder4/Player Ready"]
+position = Vector2(152, 157)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("3_o5xik")
+animation = &"F-Idle"
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
@@ -496,7 +1026,7 @@ offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 106
 text = "Play"
 
 [connection signal="pressed" from="Play" to="." method="startGame"]
