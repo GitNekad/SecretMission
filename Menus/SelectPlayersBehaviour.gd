@@ -9,6 +9,7 @@ var currentPlayer = 0
 var readyPlayers = 0
 
 func _ready():
+	MusicPlayer.playMenuMusic()
 	setCurrentPlayerWaiting()
 
 func _input(event):

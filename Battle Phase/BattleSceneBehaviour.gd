@@ -17,6 +17,7 @@ var _remainingTime
 var _players : Array[PlayerBehaviour] = []
 
 func _ready():
+	MusicPlayer.playBattleMusic()
 	if GameManager.npcHealth.size()>0:
 		setNpcsHealth()
 	setTimer()

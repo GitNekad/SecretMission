@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://muyfyowqhvp3"]
+[gd_scene load_steps=15 format=3 uid="uid://muyfyowqhvp3"]
 
 [ext_resource type="Texture2D" uid="uid://dlx8tt8xhvb8" path="res://Menus/ControllerScreen.png" id="1_5da1u"]
 [ext_resource type="Script" path="res://Menus/ShowObjectiveBehaviour.gd" id="1_sah2e"]
@@ -11,6 +11,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cahcrapisjsh7" path="res://Battle Phase/Sprites/Penwin.tres" id="8_eljns"]
 [ext_resource type="SpriteFrames" uid="uid://outxf0o7bcbj" path="res://Battle Phase/Sprites/Ram.tres" id="9_7ikey"]
 [ext_resource type="SpriteFrames" uid="uid://bdpskxhsanga1" path="res://Battle Phase/Sprites/Rat.tres" id="10_00tmn"]
+[ext_resource type="AudioStream" uid="uid://7853iuldx3m6" path="res://Menus/confirmation_004.ogg" id="12_vjyfd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hsf5m"]
 font_size = 45
@@ -18,9 +19,10 @@ font_size = 45
 [sub_resource type="LabelSettings" id="LabelSettings_wmfgn"]
 font_size = 52
 
-[node name="ShowObjective" type="Node2D" node_paths=PackedStringArray("waitingForPlayersVisuals")]
+[node name="ShowObjective" type="Node2D" node_paths=PackedStringArray("waitingForPlayersVisuals", "correctPlayerSound")]
 script = ExtResource("1_sah2e")
 waitingForPlayersVisuals = [NodePath("BG/Waiting for players container/ColorRect"), NodePath("BG/Waiting for players container/ColorRect2"), NodePath("BG/Waiting for players container/ColorRect3"), NodePath("BG/Waiting for players container/ColorRect4"), NodePath("BG/Waiting for players container/ColorRect5"), NodePath("BG/Waiting for players container/ColorRect6"), NodePath("BG/Waiting for players container/ColorRect7"), NodePath("BG/Waiting for players container/ColorRect8")]
+correctPlayerSound = NodePath("CorrectPlayerSound")
 
 [node name="BG" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -225,3 +227,7 @@ position = Vector2(1520, 429)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("10_00tmn")
 animation = &"F-Idle"
+
+[node name="CorrectPlayerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_vjyfd")
+bus = &"SFX"

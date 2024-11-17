@@ -10,6 +10,7 @@ var _characterPack = preload("res://Playable Character/PlayableCharacter.tscn")
 
 var CHARACTER_SPEED = 300
 var _playerControlsAffix : String
+var _readyToReadInputs = false
 
 func setControlAffix():
 	if GameManager.players.has(player):
@@ -34,6 +35,8 @@ func setControlAffix():
 			_playerControlsAffix = "P7"
 
 func _input(event):
+	if !_readyToReadInputs:
+		return
 	if GameManager.showingPanel:
 		return
 	if event.is_action_pressed("interact_"+_playerControlsAffix):
@@ -45,6 +48,8 @@ func get_input():
 	animateSprite()
 
 func _physics_process(delta):
+	if !_readyToReadInputs:
+		return
 	if GameManager.showingPanel:
 		return
 	get_input()
@@ -58,6 +63,8 @@ func instantiateCharacter(position: Vector2i, playerIndex, hiddenColor = false):
 	setControlAffix()
 	if GameManager.playerColors.has(playerIndex) and !hiddenColor:
 		character.modulate = GameManager.colors[GameManager.playerColors[playerIndex]]
+	await get_tree().create_timer(0.75).timeout
+	_readyToReadInputs = true
 
 func animateSprite():
 	var lookingAt : String

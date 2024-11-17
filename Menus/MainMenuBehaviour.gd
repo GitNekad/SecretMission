@@ -3,6 +3,7 @@ extends Node
 @export var startButton : Button
 
 func _ready():
+	MusicPlayer.playMenuMusic()
 	startButton.grab_focus()
 
 func startGame():

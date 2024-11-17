@@ -6,6 +6,7 @@ class_name InteractableBehaviour
 @export var damage : int
 @export var unavailableIfAlone : bool = false
 @export var pushPosition : Node2D 
+@export var interactionMarker : AnimatedSprite2D
 var available = true
 
 var victims : Array[NPCBehaviour]
@@ -17,7 +18,10 @@ func _ready():
 	hurtArea.body_exited.connect(hurtExited)
 	if unavailableIfAlone:
 		play("Unavailable")
+		interactionMarker.play("Disable")
 		available = false
+	else:
+		interactionMarker.play("Enable")
 
 func activate():
 	if !available:
@@ -27,6 +31,7 @@ func activate():
 		pushAllVictims()
 		return
 	play("Active")
+	interactionMarker.play("Disable")
 	await animation_finished
 	hurtAllVictims()
 
@@ -44,6 +49,7 @@ func hurtEntered(body):
 		victims.append(body)
 		if animation == "Unavailable":
 			play("Idle")
+			interactionMarker.play("Enable")
 			available = true
 
 func hurtExited(body):
@@ -51,6 +57,7 @@ func hurtExited(body):
 		victims.erase(body)
 		if unavailableIfAlone and victims.size() == 0:
 			play("Unavailable")
+			interactionMarker.play("Disable")
 			available = false
 
 func hurtAllVictims():

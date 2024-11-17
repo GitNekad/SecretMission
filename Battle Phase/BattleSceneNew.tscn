@@ -1,7 +1,7 @@
-[gd_scene load_steps=96 format=3 uid="uid://c4tkfrv5ks78t"]
+[gd_scene load_steps=102 format=3 uid="uid://c4tkfrv5ks78t"]
 
-[ext_resource type="Texture2D" uid="uid://c482dn3j0gumy" path="res://Battle Phase/BattleSceneNew.jpg" id="1_5rj5m"]
 [ext_resource type="Script" path="res://Battle Phase/BattleSceneBehaviour.gd" id="1_jgtrp"]
+[ext_resource type="Texture2D" uid="uid://blj1so10nak3f" path="res://Battle Phase/BattleSceneNew.PNG" id="2_2pvcw"]
 [ext_resource type="Script" path="res://Battle Phase/NPCBehaviour.gd" id="3_t3llv"]
 [ext_resource type="SpriteFrames" uid="uid://sw6cjor5dhlk" path="res://Battle Phase/Sprites/Axolotl.tres" id="5_j1r3r"]
 [ext_resource type="Script" path="res://Battle Phase/POIBehaviour.gd" id="5_o1k0o"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://Battle Phase/CarBehaviour.gd" id="11_hetl0"]
 [ext_resource type="SpriteFrames" uid="uid://outxf0o7bcbj" path="res://Battle Phase/Sprites/Ram.tres" id="11_vph66"]
 [ext_resource type="SpriteFrames" uid="uid://bdpskxhsanga1" path="res://Battle Phase/Sprites/Rat.tres" id="12_xqayn"]
+[ext_resource type="Texture2D" uid="uid://bu0j4l0qghh1u" path="res://Battle Phase/InteractableMarker.png" id="16_csmil"]
 [ext_resource type="Texture2D" uid="uid://bwui84i81jm58" path="res://Battle Phase/Clock_Empty.png" id="21_3vv7n"]
 [ext_resource type="Texture2D" uid="uid://csfrp1k8fkr3o" path="res://Battle Phase/Axolotl.png" id="21_s0bew"]
 [ext_resource type="Texture2D" uid="uid://co004fcth03u2" path="res://Battle Phase/Cat.png" id="22_67uad"]
@@ -46,9 +47,9 @@ bg_color = Color(0.08, 0.08, 0.08, 1)
 bg_color = Color(1, 0.28, 0.28, 1)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gwvhe"]
-vertices = PackedVector2Array(467.07, -94.0938, 465.531, -87.0469, 464.273, -88.4766, -229.547, -44, -216.438, -104.258, -211.398, -98.7969, -197.859, -47.4766, 273.813, -96.0625, 438.18, -86.25, 446.133, -81.4219, 453.883, -84.4063, 457.133, 70.0703, 441.813, 70.7813, 194.211, -49.4219, 172.313, -197.688, 187.5, -197.203, 220.547, -45, 471.031, 74.0391, 471.938, 209.992, 121.313, 183, 123.031, 164.023, 428.891, 72.9922, 117.344, 96.8906, 369.43, 71.2734, -470.141, 209, 36.1172, 183, -33, 182.883, -118.367, 184.117, -472.852, 58.1172, -283.508, 61.0938, -114.688, 100.727, -271.82, 30.2813, -253.188, 23.6328, -122.852, 63.9688, -87.3984, 98, -470.211, -75.0313, -470.781, -96, -278.672, -96, -246.547, -75.9688, -216.883, -223.352, -243.672, -244, 34.8828, 98.1172, -33, 102.227, 370.43, 57.2266, 423.438, 58.8281, -124.859, -43.4219, -263.703, -0.03125, 122.648, 65.0313, 127.656, -46.3438, 301.047, 68.8672, 293.148, 59, 269.578, 59, 246.578, -45, -45.7031, 98, -256.242, -44, -201.641, -101.992, -178.117, -229.531, -186.68, -231.977, -124.953, -244, -147.891, -227.367, -123.953, -96, -168.797, -77.9688, 165.617, -77.0234, 125, -96, 141.656, -227.82, 125, -244.727, 235.773, -241.188, 208.453, -229.133, 240.461, -79.0313, 426.898, -79.9766)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 0, 2, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(12, 11, 17, 18, 19, 20, 21), PackedInt32Array(21, 20, 22, 23), PackedInt32Array(19, 18, 24, 25), PackedInt32Array(26, 25, 24, 27), PackedInt32Array(27, 24, 28, 29, 30), PackedInt32Array(30, 29, 31, 32, 33, 34), PackedInt32Array(35, 36, 37, 38), PackedInt32Array(39, 38, 37, 40), PackedInt32Array(41, 25, 26, 42), PackedInt32Array(23, 43, 44, 21), PackedInt32Array(6, 45, 33, 32, 46, 3), PackedInt32Array(47, 48, 13), PackedInt32Array(49, 23, 22), PackedInt32Array(50, 49, 22, 51), PackedInt32Array(52, 51, 22, 16), PackedInt32Array(13, 16, 22, 47), PackedInt32Array(33, 47, 22, 41), PackedInt32Array(33, 41, 42, 53), PackedInt32Array(33, 53, 34), PackedInt32Array(46, 54, 3), PackedInt32Array(6, 5, 55), PackedInt32Array(56, 6, 55, 57), PackedInt32Array(57, 39, 40), PackedInt32Array(57, 40, 58), PackedInt32Array(56, 57, 58, 59), PackedInt32Array(59, 58, 60, 61), PackedInt32Array(62, 61, 60, 63), PackedInt32Array(64, 62, 63, 65), PackedInt32Array(64, 65, 66, 67), PackedInt32Array(67, 66, 7, 68), PackedInt32Array(69, 68, 7, 8), PackedInt32Array(10, 9, 8, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-171, -221, -189, -55, -117, -51, -115, 56, 115, 57, 120, -54, 185, -57, 163, -206, 194, -205, 227, -53, 253, -53, 276, 51, 297, 51, 305, 61, 362, 63, 363, 49, 429, 51, 434, 64, 438, -77, 429, -72, 234, -71, 202, -221, 151, -220, 175, -69, -178, -70, -157, -220), PackedVector2Array(-481, 50, -289, 53, -278, 24, -264, 19, -272, 1, -263, -52, -236, -52, -221, -121, -209, -108, -196, -221, -210, -217, -240, -68, -478, -67, -479, -104, -285, -104, -250, -252, -117, -252, -116, -104, 117, -104, 117, -253, 242, -249, 280, -104, 477, -102, 470, -70, 462, -79, 465, 64, 479, 68, 480, 218, -478, 217), PackedVector2Array(-107, 108, -110, 176, -41, 175, -41, 108, -47, 106, -87, 106), PackedVector2Array(43, 106, 44, 175, 114, 175, 115, 164, 110, 105)])
+vertices = PackedVector2Array(-229.547, -44, -216.719, -103, -206.781, -90.7188, -197.148, -54.0938, 467.07, -94.0938, 465.531, -87.0469, 464.273, -88.4766, 273.813, -96.0625, 438.18, -86.25, 446.133, -81.4219, 453.883, -84.4063, 457.133, 70.0703, 441.813, 70.7813, 193.898, -51.4609, 172.297, -197.688, 187.5, -197.203, 220.547, -45, 471.031, 74.0391, 471.938, 209.992, 121.313, 183, 123.031, 164.023, 428.891, 72.9922, 117.344, 96.8906, 369.43, 71.2734, -470.141, 209, 36.1172, 183, -33, 182.883, -118.367, 184.117, -472.852, 58.1172, -283.508, 61.0938, -114.688, 100.727, -271.82, 30.2813, -253.188, 23.6328, -157.867, 60.5469, -470.211, -75.0313, -470.781, -96, -278.672, -96, -246.547, -75.9688, -216.883, -223.352, -243.672, -244, 34.8828, 98.1172, -33, 102.227, 370.43, 57.2266, 423.438, 58.8281, 301.047, 68.8672, 293.148, 59, 269.578, 59, 246.578, -45, 143.609, 64, -263.703, -0.03125, -256.242, -44, 163.961, -41.8281, -115.32, 64, -45.7031, 98, -87.3984, 98, -196.383, -94.0313, -178.117, -229.531, -187.273, -231.82, -124.953, -244, -147.891, -227.367, -123.953, -96, -168.797, -77.9688, 165.617, -77.0234, 125, -96, 141.656, -227.82, 125, -244.727, 235.773, -241.188, 208.453, -229.133, 240.461, -79.0313, 426.898, -79.9766)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 4, 6, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(12, 11, 17, 18, 19, 20, 21), PackedInt32Array(21, 20, 22, 23), PackedInt32Array(19, 18, 24, 25), PackedInt32Array(26, 25, 24, 27), PackedInt32Array(27, 24, 28, 29, 30), PackedInt32Array(30, 29, 31, 32, 33), PackedInt32Array(34, 35, 36, 37), PackedInt32Array(38, 37, 36, 39), PackedInt32Array(40, 25, 26, 41), PackedInt32Array(23, 42, 43, 21), PackedInt32Array(44, 23, 22), PackedInt32Array(45, 44, 22, 46), PackedInt32Array(47, 46, 22, 48), PackedInt32Array(49, 50, 0, 32), PackedInt32Array(48, 51, 13, 16), PackedInt32Array(48, 16, 47), PackedInt32Array(52, 48, 22, 40), PackedInt32Array(52, 40, 41, 53), PackedInt32Array(52, 53, 54), PackedInt32Array(52, 54, 30, 33), PackedInt32Array(3, 33, 32, 0), PackedInt32Array(3, 2, 55), PackedInt32Array(56, 3, 55, 57), PackedInt32Array(57, 38, 39), PackedInt32Array(57, 39, 58), PackedInt32Array(56, 57, 58, 59), PackedInt32Array(59, 58, 60, 61), PackedInt32Array(62, 61, 60, 63), PackedInt32Array(64, 62, 63, 65), PackedInt32Array(64, 65, 66, 67), PackedInt32Array(67, 66, 7, 68), PackedInt32Array(69, 68, 7, 8), PackedInt32Array(10, 9, 8, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-171, -221, -189, -55, -152, 53, -115, 56, 137, 56, 157, -48, 185, -57, 163, -206, 194, -205, 227, -53, 253, -53, 276, 51, 297, 51, 305, 61, 362, 63, 363, 49, 429, 51, 434, 64, 438, -77, 429, -72, 234, -71, 202, -221, 151, -220, 175, -69, -178, -70, -157, -220), PackedVector2Array(-481, 50, -289, 53, -278, 24, -264, 19, -272, 1, -263, -52, -236, -52, -221, -121, -204, -100, -196, -221, -210, -217, -240, -68, -478, -67, -479, -104, -285, -104, -250, -252, -117, -252, -116, -104, 117, -104, 117, -253, 242, -249, 280, -104, 477, -102, 470, -70, 462, -79, 465, 64, 479, 68, 480, 218, -478, 217), PackedVector2Array(-107, 108, -110, 176, -41, 175, -41, 108, -47, 106, -87, 106), PackedVector2Array(43, 106, 44, 175, 114, 175, 115, 164, 110, 105)])
 agent_radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gq0hv"]
@@ -129,7 +130,51 @@ animations = [{
 size = Vector2(47, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puhej"]
-size = Vector2(74, 28)
+size = Vector2(74, 36.2022)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7gw2"]
+atlas = ExtResource("16_csmil")
+region = Rect2(0, 0, 35, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwrru"]
+atlas = ExtResource("16_csmil")
+region = Rect2(35, 0, 35, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cywm"]
+atlas = ExtResource("16_csmil")
+region = Rect2(70, 0, 35, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq3j7"]
+atlas = ExtResource("16_csmil")
+region = Rect2(105, 0, 35, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sxiy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"Disable",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7gw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwrru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cywm")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_sq3j7")
+}],
+"loop": true,
+"name": &"Enable",
+"speed": 6.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xuwvw"]
 atlas = ExtResource("7_kygsk")
@@ -280,13 +325,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pald"]
-size = Vector2(37, 55)
+size = Vector2(43, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd8y3"]
 size = Vector2(20, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3674p"]
-size = Vector2(42, 60)
+size = Vector2(45, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3hy1"]
 
@@ -532,7 +577,7 @@ statusLabel = NodePath("Npc Incapacitated Panel/BG/Status")
 zoom = Vector2(2, 2)
 
 [node name="SceneBackground" type="Sprite2D" parent="."]
-texture = ExtResource("1_5rj5m")
+texture = ExtResource("2_2pvcw")
 
 [node name="Map Collisions" type="StaticBody2D" parent="."]
 
@@ -540,7 +585,7 @@ texture = ExtResource("1_5rj5m")
 polygon = PackedVector2Array(-482, 50, -373, 49, -289, 50, -281, 20, -268, 19, -275, 1, -265, -55, -238, -57, -202, -215, -207, -210, -209, -216, -240, -67, -481, -65)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map Collisions"]
-polygon = PackedVector2Array(-115, -55, -114, 51, 38, 53, 106, 55, 115, 50, 114, -56, 180, -57, 156, -212, 198, -212, 229, -57, 256, -56, 280, 50, 295, 50, 303, 62, 362, 63, 364, 51, 429, 51, 431, 52, 436, 48, 435, -71, 431, -74, 428, -69, 232, -69, 200, -219, 154, -218, 175, -67, -180, -67, -158, -219, -168, -221, -172, -150, -184, -56)
+polygon = PackedVector2Array(-168, -2, -149, 50, 38, 53, 106, 55, 135, 51, 154, -51, 180, -57, 156, -212, 198, -212, 229, -57, 256, -56, 280, 50, 295, 50, 303, 62, 362, 63, 364, 51, 429, 51, 431, 52, 436, 48, 435, -71, 431, -74, 428, -69, 232, -69, 200, -219, 154, -218, 175, -67, -180, -67, -158, -219, -168, -221, -172, -150, -184, -56)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Map Collisions"]
 polygon = PackedVector2Array(463, -73, 463, 49, 469, 52, 482, 50, 482, -68, 470, -68, 467, -75)
@@ -577,7 +622,8 @@ shape = SubResource("WorldBoundaryShape2D_vqimw")
 top_level = true
 
 [node name="NPC1" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
-position = Vector2(-151.54, 0)
+y_sort_enabled = true
+position = Vector2(-217.36, -18.45)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
 pointsOfInterest = [NodePath("../../NPCs POIs/Node2D"), NodePath("../../NPCs POIs/Node2D2"), NodePath("../../NPCs POIs/Node2D3"), NodePath("../../NPCs POIs/Node2D4"), NodePath("../../NPCs POIs/Node2D5"), NodePath("../../NPCs POIs/Node2D6"), NodePath("../../NPCs POIs/Node2D7"), NodePath("../../NPCs POIs/Node2D8"), NodePath("../../NPCs POIs/Node2D9"), NodePath("../../NPCs POIs/Node2D10"), NodePath("../../NPCs POIs/Node2D11"), NodePath("../../NPCs POIs/Node2D12"), NodePath("../../NPCs POIs/Node2D13"), NodePath("../../NPCs POIs/Node2D14")]
@@ -590,6 +636,7 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC1"]
+y_sort_enabled = true
 sprite_frames = ExtResource("5_j1r3r")
 animation = &"F-Idle"
 
@@ -609,6 +656,7 @@ value = 99.96
 show_percentage = false
 
 [node name="NPC2" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
+y_sort_enabled = true
 position = Vector2(-197, 34.22)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
@@ -622,6 +670,7 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC2"]
+y_sort_enabled = true
 sprite_frames = ExtResource("6_u0ank")
 animation = &"F-Idle"
 
@@ -641,6 +690,7 @@ value = 99.96
 show_percentage = false
 
 [node name="NPC3" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
+y_sort_enabled = true
 position = Vector2(160, 0)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
@@ -654,6 +704,7 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC3"]
+y_sort_enabled = true
 sprite_frames = ExtResource("7_irs5r")
 animation = &"F-Idle"
 
@@ -673,6 +724,7 @@ value = 99.96
 show_percentage = false
 
 [node name="NPC4" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
+y_sort_enabled = true
 position = Vector2(180, 100)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
@@ -686,6 +738,7 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC4"]
+y_sort_enabled = true
 sprite_frames = ExtResource("8_1ywur")
 animation = &"F-Idle"
 
@@ -705,6 +758,7 @@ value = 99.96
 show_percentage = false
 
 [node name="NPC5" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
+y_sort_enabled = true
 position = Vector2(-200, 150)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
@@ -718,6 +772,7 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC5"]
+y_sort_enabled = true
 sprite_frames = ExtResource("9_l8jfl")
 animation = &"F-Idle"
 
@@ -737,6 +792,7 @@ value = 99.96
 show_percentage = false
 
 [node name="NPC6" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
+y_sort_enabled = true
 position = Vector2(-300, 100)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
@@ -750,6 +806,7 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC6"]
+y_sort_enabled = true
 sprite_frames = ExtResource("10_ecycd")
 animation = &"F-Idle"
 
@@ -769,6 +826,7 @@ value = 99.96
 show_percentage = false
 
 [node name="NPC7" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
+y_sort_enabled = true
 position = Vector2(300, 180)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
@@ -782,6 +840,7 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC7"]
+y_sort_enabled = true
 sprite_frames = ExtResource("11_vph66")
 animation = &"F-Idle"
 
@@ -801,6 +860,7 @@ value = 99.96
 show_percentage = false
 
 [node name="NPC8" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
+y_sort_enabled = true
 position = Vector2(350, 155)
 script = ExtResource("3_t3llv")
 navigationAgent = NodePath("NavigationAgent2D")
@@ -814,6 +874,7 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC8"]
+y_sort_enabled = true
 sprite_frames = ExtResource("12_xqayn")
 animation = &"F-Idle"
 
@@ -889,7 +950,7 @@ position = Vector2(14, -80)
 script = ExtResource("5_o1k0o")
 
 [node name="Node2D13" type="Node2D" parent="NPCs POIs"]
-position = Vector2(182, -232)
+position = Vector2(182, -228)
 script = ExtResource("5_o1k0o")
 
 [node name="Node2D14" type="Node2D" parent="NPCs POIs"]
@@ -901,7 +962,7 @@ navigation_polygon = SubResource("NavigationPolygon_gwvhe")
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="Piano" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
+[node name="Piano" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
 position = Vector2(-382.5, 18.5)
 scale = Vector2(0.91579, 0.690566)
 sprite_frames = SubResource("SpriteFrames_fb7wc")
@@ -911,7 +972,7 @@ script = ExtResource("8_r8ky6")
 activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
 damage = 30
-unavailableIfAlone = null
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Piano"]
 
@@ -922,10 +983,16 @@ shape = SubResource("RectangleShape2D_jvb3w")
 [node name="HurtArea" type="Area2D" parent="Interactables/Piano"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Piano/HurtArea"]
-position = Vector2(2, 107)
+position = Vector2(6.00575, 104.986)
 shape = SubResource("RectangleShape2D_puhej")
 
-[node name="Electricity" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Piano"]
+position = Vector2(-0.545977, -167.254)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.712099
+
+[node name="Electricity" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
 position = Vector2(340, 89)
 sprite_frames = SubResource("SpriteFrames_mkq0e")
 animation = &"Idle"
@@ -933,7 +1000,7 @@ script = ExtResource("8_r8ky6")
 activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
 damage = 20
-unavailableIfAlone = null
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Electricity"]
 
@@ -946,7 +1013,13 @@ shape = SubResource("RectangleShape2D_nqlfd")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactables/Electricity/HurtArea"]
 polygon = PackedVector2Array(59, -40, 88, -35, 86, -21, 62, -12, 73, 3, 69, 11, 33, 12, 13, 24, -21, 40, -35, 38, -30, 22, -20, 10, -34, 5, -65, 14, -81, 10, -78, -6, -49, -28, -51, -38, -44, -42, -36, -29, 22, -27, 22, -41)
 
-[node name="Apple1" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Electricity"]
+position = Vector2(-56, -66)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.133266
+
+[node name="Apple1" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
 position = Vector2(-104, 135)
 sprite_frames = SubResource("SpriteFrames_ttkx4")
 animation = &"Unavailable"
@@ -955,6 +1028,7 @@ activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Apple1"]
 
@@ -968,7 +1042,13 @@ shape = SubResource("RectangleShape2D_3pald")
 position = Vector2(-23, 1)
 shape = SubResource("RectangleShape2D_cd8y3")
 
-[node name="Apple2" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Apple1"]
+position = Vector2(-22, -19)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.593016
+
+[node name="Apple2" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
 position = Vector2(-46, 135)
 sprite_frames = SubResource("SpriteFrames_ttkx4")
 animation = &"Unavailable"
@@ -977,11 +1057,12 @@ activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Apple2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple2/ActivationArea"]
-position = Vector2(23, 1)
+position = Vector2(24.5, 4)
 shape = SubResource("RectangleShape2D_3674p")
 
 [node name="HurtArea" type="Area2D" parent="Interactables/Apple2"]
@@ -990,7 +1071,13 @@ shape = SubResource("RectangleShape2D_3674p")
 position = Vector2(19, 1)
 shape = SubResource("RectangleShape2D_j3hy1")
 
-[node name="Apple3" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Apple2"]
+position = Vector2(23, -22)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.593016
+
+[node name="Apple3" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
 position = Vector2(48, 135)
 sprite_frames = SubResource("SpriteFrames_ttkx4")
 animation = &"Unavailable"
@@ -999,11 +1086,12 @@ activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Apple3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Apple3/ActivationArea"]
-position = Vector2(-23, -1)
+position = Vector2(-20.5, 2.5)
 shape = SubResource("RectangleShape2D_3pald")
 
 [node name="HurtArea" type="Area2D" parent="Interactables/Apple3"]
@@ -1012,7 +1100,13 @@ shape = SubResource("RectangleShape2D_3pald")
 position = Vector2(-20, 1)
 shape = SubResource("RectangleShape2D_cd8y3")
 
-[node name="Apple4" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Apple3"]
+position = Vector2(-21, -22)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.593016
+
+[node name="Apple4" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
 position = Vector2(108, 133)
 sprite_frames = SubResource("SpriteFrames_ttkx4")
 animation = &"Unavailable"
@@ -1021,6 +1115,7 @@ activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Apple4"]
 
@@ -1034,7 +1129,13 @@ shape = SubResource("RectangleShape2D_3674p")
 position = Vector2(18, 5)
 shape = SubResource("RectangleShape2D_j3hy1")
 
-[node name="Push1" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Apple4"]
+position = Vector2(19, -18)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.593016
+
+[node name="Push1" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition", "interactionMarker")]
 position = Vector2(14, -78)
 sprite_frames = SubResource("SpriteFrames_yskkr")
 animation = &"Unavailable"
@@ -1044,6 +1145,7 @@ hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
 pushPosition = NodePath("Node2D")
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Push1"]
 
@@ -1059,8 +1161,14 @@ shape = SubResource("RectangleShape2D_7mc7d")
 [node name="Node2D" type="Node2D" parent="Interactables/Push1"]
 position = Vector2(-2, 162)
 
-[node name="Push2" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
-position = Vector2(182, -229)
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Push1"]
+position = Vector2(-5.96046e-08, -34)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.593016
+
+[node name="Push2" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition", "interactionMarker")]
+position = Vector2(182, -225.41)
 sprite_frames = SubResource("SpriteFrames_yskkr")
 animation = &"Unavailable"
 script = ExtResource("8_r8ky6")
@@ -1069,6 +1177,7 @@ hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
 pushPosition = NodePath("Node2D")
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Push2"]
 
@@ -1084,7 +1193,13 @@ shape = SubResource("RectangleShape2D_7mc7d")
 [node name="Node2D" type="Node2D" parent="Interactables/Push2"]
 position = Vector2(4, 63)
 
-[node name="Push3" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Push2"]
+position = Vector2(-2, -12.59)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.512585
+
+[node name="Push3" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition", "interactionMarker")]
 position = Vector2(362, -79)
 sprite_frames = SubResource("SpriteFrames_yskkr")
 animation = &"Unavailable"
@@ -1094,6 +1209,7 @@ hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
 pushPosition = NodePath("Node2D")
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Push3"]
 
@@ -1109,16 +1225,22 @@ shape = SubResource("RectangleShape2D_7mc7d")
 [node name="Node2D" type="Node2D" parent="Interactables/Push3"]
 position = Vector2(0, 212)
 
-[node name="Push4" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Push3"]
+position = Vector2(1.32918e-05, -31)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.593016
+
+[node name="Push4" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition", "interactionMarker")]
 position = Vector2(417, 203)
 sprite_frames = SubResource("SpriteFrames_yskkr")
 animation = &"Unavailable"
 script = ExtResource("8_r8ky6")
 activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
-damage = null
 unavailableIfAlone = true
 pushPosition = NodePath("Node2D")
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Push4"]
 
@@ -1134,16 +1256,22 @@ shape = SubResource("RectangleShape2D_7mc7d")
 [node name="Node2D" type="Node2D" parent="Interactables/Push4"]
 position = Vector2(0, 54)
 
-[node name="Push5" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Push4"]
+position = Vector2(1.32918e-05, -31)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.593016
+
+[node name="Push5" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition", "interactionMarker")]
 position = Vector2(272, 202)
 sprite_frames = SubResource("SpriteFrames_yskkr")
 animation = &"Unavailable"
 script = ExtResource("8_r8ky6")
 activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
-damage = null
 unavailableIfAlone = true
 pushPosition = NodePath("Node2D")
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Push5"]
 
@@ -1159,16 +1287,21 @@ shape = SubResource("RectangleShape2D_7mc7d")
 [node name="Node2D" type="Node2D" parent="Interactables/Push5"]
 position = Vector2(0, 54)
 
-[node name="Push6" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition")]
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Push5"]
+position = Vector2(1.32918e-05, -30)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+
+[node name="Push6" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition", "interactionMarker")]
 position = Vector2(-315, 202)
 sprite_frames = SubResource("SpriteFrames_yskkr")
 animation = &"Unavailable"
 script = ExtResource("8_r8ky6")
 activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
-damage = null
 unavailableIfAlone = true
 pushPosition = NodePath("Node2D")
+interactionMarker = NodePath("InteractionMarker")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Push6"]
 
@@ -1183,6 +1316,12 @@ shape = SubResource("RectangleShape2D_7mc7d")
 
 [node name="Node2D" type="Node2D" parent="Interactables/Push6"]
 position = Vector2(0, 54)
+
+[node name="InteractionMarker" type="AnimatedSprite2D" parent="Interactables/Push6"]
+position = Vector2(1.32918e-05, -29)
+sprite_frames = SubResource("SpriteFrames_sxiy2")
+animation = &"Enable"
+frame_progress = 0.593016
 
 [node name="Cars" type="Node2D" parent="."]
 position = Vector2(0, 250.995)

@@ -1,12 +1,14 @@
 extends Node
 
 @export var waitingForPlayersVisuals : Array[Control]
+@export var correctPlayerSound : AudioStreamPlayer
 
 var waitingForPlayers = []
 var playerIsHoldingButton = [[false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false],[false,false,false,false,false,false,false,false]]
 var playerHoldingButtonTimer = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]]
 
 func _ready():
+	MusicPlayer.playMenuMusic()
 	var unusedColors = [0,1,2,3,4,5,6,7]
 	for key in GameManager.playerColors:
 		unusedColors.erase(GameManager.playerColors[key])
@@ -73,12 +75,13 @@ func _process(delta):
 			if playerIsHoldingButton[player][i]:
 				var newTime = playerHoldingButtonTimer[player][i] + delta
 				playerHoldingButtonTimer[player][i] = newTime
-				if newTime > 5:
+				if newTime > 3:
 					setPlayerReady(player)
 
 func pressedOnCharacter(player, character):
 	if GameManager.objectives[player] == character:
 		print("pressed on the objective") # TODO: play a sound
+		correctPlayerSound.play()
 
 func setPlayerReady(player):
 	waitingForPlayers.erase(player)

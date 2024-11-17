@@ -1,3 +1,227 @@
-[gd_scene format=3 uid="uid://6p4qirckyjq1"]
+[gd_scene load_steps=14 format=3 uid="uid://6p4qirckyjq1"]
 
-[node name="BetweenDays" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dlx8tt8xhvb8" path="res://Menus/ControllerScreen.png" id="1_0jkyf"]
+[ext_resource type="Script" path="res://Menus/BetweenDaysBehaviour.gd" id="1_x6aae"]
+[ext_resource type="SpriteFrames" uid="uid://cynanwwfv68qp" path="res://Playable Character/PlayableCharacter.tres" id="2_bfyea"]
+[ext_resource type="SpriteFrames" uid="uid://sw6cjor5dhlk" path="res://Battle Phase/Sprites/Axolotl.tres" id="3_hdmad"]
+[ext_resource type="SpriteFrames" uid="uid://d3gtip72gjfln" path="res://Battle Phase/Sprites/Cat.tres" id="4_40ns3"]
+[ext_resource type="SpriteFrames" uid="uid://ctoi8g172yf54" path="res://Battle Phase/Sprites/Hare.tres" id="5_bp1jw"]
+[ext_resource type="SpriteFrames" uid="uid://bbwn1sjbj8vcl" path="res://Battle Phase/Sprites/Monki.tres" id="6_ooqow"]
+[ext_resource type="SpriteFrames" uid="uid://cx4gwd2bs4ajf" path="res://Battle Phase/Sprites/Owl.tres" id="7_e1bhh"]
+[ext_resource type="SpriteFrames" uid="uid://cahcrapisjsh7" path="res://Battle Phase/Sprites/Penwin.tres" id="8_cceb7"]
+[ext_resource type="SpriteFrames" uid="uid://outxf0o7bcbj" path="res://Battle Phase/Sprites/Ram.tres" id="9_mjg2p"]
+[ext_resource type="SpriteFrames" uid="uid://bdpskxhsanga1" path="res://Battle Phase/Sprites/Rat.tres" id="10_851op"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_67rgn"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_jjk4w"]
+font_size = 52
+
+[node name="BetweenDays" type="Node2D" node_paths=PackedStringArray("waitingForPlayersVisuals")]
+script = ExtResource("1_x6aae")
+waitingForPlayersVisuals = [NodePath("BG/Waiting for players container/ColorRect"), NodePath("BG/Waiting for players container/ColorRect2"), NodePath("BG/Waiting for players container/ColorRect3"), NodePath("BG/Waiting for players container/ColorRect4"), NodePath("BG/Waiting for players container/ColorRect5"), NodePath("BG/Waiting for players container/ColorRect6"), NodePath("BG/Waiting for players container/ColorRect7"), NodePath("BG/Waiting for players container/ColorRect8")]
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.145098, 0.168627, 0.203922, 1)
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_0jkyf")
+
+[node name="Tutorial" type="Label" parent="BG"]
+layout_mode = 0
+offset_right = 1921.0
+offset_bottom = 161.0
+text = "Press a button to select a character to protect next round.
+Protected characters will receive half the damage."
+label_settings = SubResource("LabelSettings_67rgn")
+horizontal_alignment = 1
+
+[node name="Waiting for players" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.5
+offset_top = -215.0
+offset_right = 75.5
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Waiting for Players:"
+label_settings = SubResource("LabelSettings_jjk4w")
+horizontal_alignment = 1
+
+[node name="Waiting for players container" type="GridContainer" parent="BG"]
+custom_minimum_size = Vector2(268, 132)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -180.0
+offset_right = 128.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 4
+
+[node name="ColorRect" type="ColorRect" parent="BG/Waiting for players container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG/Waiting for players container/ColorRect"]
+modulate = Color(0.803922, 0.360784, 0.360784, 1)
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_bfyea")
+animation = &"F-Idle"
+
+[node name="ColorRect2" type="ColorRect" parent="BG/Waiting for players container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+color = Color(0.62, 0.1426, 0.341517, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG/Waiting for players container/ColorRect2"]
+modulate = Color(0.254902, 0.411765, 0.882353, 1)
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_bfyea")
+animation = &"F-Idle"
+
+[node name="ColorRect3" type="ColorRect" parent="BG/Waiting for players container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+color = Color(0.62, 0.1426, 0.341517, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG/Waiting for players container/ColorRect3"]
+modulate = Color(0.486275, 0.988235, 0, 1)
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_bfyea")
+animation = &"F-Idle"
+
+[node name="ColorRect4" type="ColorRect" parent="BG/Waiting for players container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+color = Color(0.62, 0.1426, 0.341517, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG/Waiting for players container/ColorRect4"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_bfyea")
+animation = &"F-Idle"
+
+[node name="ColorRect5" type="ColorRect" parent="BG/Waiting for players container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+color = Color(0.62, 0.1426, 0.341517, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG/Waiting for players container/ColorRect5"]
+modulate = Color(1, 0.411765, 0.705882, 1)
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_bfyea")
+animation = &"F-Idle"
+
+[node name="ColorRect6" type="ColorRect" parent="BG/Waiting for players container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+color = Color(0.62, 0.1426, 0.341517, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG/Waiting for players container/ColorRect6"]
+modulate = Color(0.4, 0.2, 0.6, 1)
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_bfyea")
+animation = &"F-Idle"
+
+[node name="ColorRect7" type="ColorRect" parent="BG/Waiting for players container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+color = Color(0.62, 0.1426, 0.341517, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG/Waiting for players container/ColorRect7"]
+modulate = Color(1, 0.54902, 0, 1)
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_bfyea")
+animation = &"F-Idle"
+
+[node name="ColorRect8" type="ColorRect" parent="BG/Waiting for players container"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+color = Color(0.62, 0.1426, 0.341517, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG/Waiting for players container/ColorRect8"]
+modulate = Color(0.498039, 1, 0.831373, 1)
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_bfyea")
+animation = &"F-Idle"
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="NPC1" type="AnimatedSprite2D" parent="Characters"]
+position = Vector2(570, 284)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_hdmad")
+animation = &"F-Idle"
+
+[node name="NPC2" type="AnimatedSprite2D" parent="Characters"]
+position = Vector2(425, 428)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_40ns3")
+animation = &"F-Idle"
+
+[node name="NPC3" type="AnimatedSprite2D" parent="Characters"]
+position = Vector2(711, 428)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("5_bp1jw")
+animation = &"F-Idle"
+
+[node name="NPC4" type="AnimatedSprite2D" parent="Characters"]
+position = Vector2(570, 571)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("6_ooqow")
+animation = &"F-Idle"
+
+[node name="NPC5" type="AnimatedSprite2D" parent="Characters"]
+position = Vector2(1353, 259)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_e1bhh")
+animation = &"F-Idle"
+
+[node name="NPC6" type="AnimatedSprite2D" parent="Characters"]
+position = Vector2(1353, 598)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("8_cceb7")
+animation = &"F-Idle"
+
+[node name="NPC7" type="AnimatedSprite2D" parent="Characters"]
+position = Vector2(1184, 429)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("9_mjg2p")
+animation = &"F-Idle"
+
+[node name="NPC8" type="AnimatedSprite2D" parent="Characters"]
+position = Vector2(1520, 429)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("10_851op")
+animation = &"F-Idle"

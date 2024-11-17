@@ -10,7 +10,7 @@ var moving : bool
 var stun : bool = false
 var characterLookingDirection : Vector2 = Vector2(0,1)
 var currentPoi : POIBehaviour
-var health = 100
+var health : float = 100
 var waitingTimer : SceneTreeTimer
 var stunTimer : SceneTreeTimer
 var index = 0
@@ -23,11 +23,15 @@ var MIN_STUN_TIME = 5
 var MAX_STUN_TIME = 10
 
 var READY = false
+var exiled = false
 
 func _ready():
 	setNewTarget()
 	navigationAgent.navigation_finished.connect(waitInPOIAndSetNewTarget)
 	await get_tree().create_timer(0.5).timeout
+	if exiled:
+		exile()
+		return
 	mapReady()
 
 func _physics_process(delta):
@@ -57,13 +61,15 @@ func setNewTarget():
 
 func waitInPOIAndSetNewTarget():
 	moving = false
-	characterLookingDirection = currentPoi.lookingPosition
+	if currentPoi != null:
+		characterLookingDirection = currentPoi.lookingPosition
 	var waitTime = randf_range(MIN_WAIT_TIME, MAX_WAIT_TIME)
 	waitingTimer = get_tree().create_timer(waitTime)
 	await waitingTimer.timeout
 	if stun:
 		return
-	currentPoi.available = true
+	if currentPoi != null:
+		currentPoi.available = true
 	setNewTarget()
 
 func animateSprite():
@@ -120,7 +126,7 @@ func setHealth(value):
 		exile()
 
 func reduceHealth(damage):
-	health -= damage
+	health -= damage*GameManager.npcDamageMultiplier[index]
 	healthBar.value = health
 	if health <=0:
 		exile()
@@ -131,5 +137,6 @@ func exile():
 		currentPoi.available = true
 		currentPoi = null
 	READY = false
+	exiled = true
 	position = Vector2i(0,0)
 	visible = false

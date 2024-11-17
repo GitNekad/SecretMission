@@ -3,6 +3,7 @@ extends Node
 @export var xWon : Label
 
 func _ready():
+	MusicPlayer.playVictoryMusic()
 	var color = GameManager.playerColors[GameManager.winner]
 	xWon.modulate = GameManager.colors[color]
 	xWon.text = GameManager.colorsName[color] + " won the game"
