@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tg2xk7hjx2yh"
+path="res://.godot/imported/PianoFalling.ogg-f804b51dcc7a0f79b6bfc973cf5b1956.oggvorbisstr"
+
+[deps]
+
+source_file="res://Battle Phase/PianoFalling.ogg"
+dest_files=["res://.godot/imported/PianoFalling.ogg-f804b51dcc7a0f79b6bfc973cf5b1956.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -3,12 +3,13 @@ extends Control
 @export var playerHolders : Array[PlayerHolder]
 @export var playButton : Button
 
-var unselectedPlayersAffixes = ["P0","P1","P2","P3","P4","P5","P6","P7"]
+var unselectedPlayersAffixes = ["P0","P1","P2","P3","P4","P5","P6","P7", "KB"]
 var unselectedColors = [0,1,2,3,4,5,6,7]
 var currentPlayer = 0
 var readyPlayers = 0
 
 func _ready():
+	GameManager.keyboardPlayer = false
 	MusicPlayer.playMenuMusic()
 	setCurrentPlayerWaiting()
 
@@ -26,6 +27,8 @@ func _input(event):
 			addNewPlayer(affix)
 
 func addNewPlayer(affix):
+	if affix == "KB":
+		GameManager.keyboardPlayer = true
 	GameManager.players[currentPlayer] = affix
 	unselectedPlayersAffixes.erase(affix)
 	playerHolders[currentPlayer].initialize(currentPlayer, affix, self)
@@ -55,7 +58,7 @@ func setPlayerReady(colorIndex, playerIndex):
 	pointer.init(playerIndex)
 	
 	readyPlayers += 1
-	playButton.disabled = currentPlayer < 1 or !readyPlayers == currentPlayer
+	playButton.disabled = currentPlayer < 2 or !readyPlayers == currentPlayer
 
 func startGame():
 	GameManager.asignNpcsToPlayers()

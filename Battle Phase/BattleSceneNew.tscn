@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://c4tkfrv5ks78t"]
+[gd_scene load_steps=106 format=3 uid="uid://c4tkfrv5ks78t"]
 
 [ext_resource type="Script" path="res://Battle Phase/BattleSceneBehaviour.gd" id="1_jgtrp"]
 [ext_resource type="Texture2D" uid="uid://blj1so10nak3f" path="res://Battle Phase/BattleSceneNew.PNG" id="2_2pvcw"]
@@ -19,10 +19,14 @@
 [ext_resource type="SpriteFrames" uid="uid://outxf0o7bcbj" path="res://Battle Phase/Sprites/Ram.tres" id="11_vph66"]
 [ext_resource type="SpriteFrames" uid="uid://bdpskxhsanga1" path="res://Battle Phase/Sprites/Rat.tres" id="12_xqayn"]
 [ext_resource type="Texture2D" uid="uid://bu0j4l0qghh1u" path="res://Battle Phase/InteractableMarker.png" id="16_csmil"]
+[ext_resource type="AudioStream" uid="uid://tg2xk7hjx2yh" path="res://Battle Phase/PianoFalling.ogg" id="17_bicpk"]
+[ext_resource type="AudioStream" uid="uid://bepldkf8l30m0" path="res://Battle Phase/Electricity.mp3" id="18_ip824"]
+[ext_resource type="AudioStream" uid="uid://4ljy27v2yc4g" path="res://Battle Phase/Poison.ogg" id="19_hcrdo"]
 [ext_resource type="Texture2D" uid="uid://bwui84i81jm58" path="res://Battle Phase/Clock_Empty.png" id="21_3vv7n"]
 [ext_resource type="Texture2D" uid="uid://csfrp1k8fkr3o" path="res://Battle Phase/Axolotl.png" id="21_s0bew"]
 [ext_resource type="Texture2D" uid="uid://co004fcth03u2" path="res://Battle Phase/Cat.png" id="22_67uad"]
 [ext_resource type="Texture2D" uid="uid://dxgwo0hv321w0" path="res://Battle Phase/Clock_Filled.png" id="22_g1ctl"]
+[ext_resource type="AudioStream" uid="uid://b78kocus55bfd" path="res://Battle Phase/CarHonk.ogg" id="23_dff8x"]
 [ext_resource type="Texture2D" uid="uid://bix3pbs85ioha" path="res://Battle Phase/Hare.png" id="23_rmms2"]
 [ext_resource type="Texture2D" uid="uid://cqrtnujv4ixry" path="res://Battle Phase/Monki.png" id="24_3p6ta"]
 [ext_resource type="Texture2D" uid="uid://beci473beidd0" path="res://Battle Phase/Owl.png" id="25_vnqsb"]
@@ -257,29 +261,29 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqlfd"]
 size = Vector2(36, 23)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_een46"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu0me"]
 atlas = ExtResource("9_8hpl5")
-region = Rect2(7, 0, 7, 16)
+region = Rect2(14, 0, 14, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ol85r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_377mc"]
 atlas = ExtResource("9_8hpl5")
-region = Rect2(14, 0, 7, 16)
+region = Rect2(28, 0, 14, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_20sgl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp20h"]
 atlas = ExtResource("9_8hpl5")
-region = Rect2(21, 0, 7, 16)
+region = Rect2(42, 0, 14, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fg4q8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t8kc"]
 atlas = ExtResource("9_8hpl5")
-region = Rect2(28, 0, 7, 16)
+region = Rect2(56, 0, 14, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lp67y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hsni"]
 atlas = ExtResource("9_8hpl5")
-region = Rect2(35, 0, 7, 16)
+region = Rect2(70, 0, 14, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rxjku"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0xyl"]
 atlas = ExtResource("9_8hpl5")
-region = Rect2(0, 0, 7, 16)
+region = Rect2(0, 0, 14, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6uh4"]
 atlas = ExtResource("7_kygsk")
@@ -289,19 +293,19 @@ region = Rect2(0, 0, 103, 88)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_een46")
+"texture": SubResource("AtlasTexture_iu0me")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ol85r")
+"texture": SubResource("AtlasTexture_377mc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_20sgl")
+"texture": SubResource("AtlasTexture_qp20h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fg4q8")
+"texture": SubResource("AtlasTexture_0t8kc")
 }, {
 "duration": 3.0,
-"texture": SubResource("AtlasTexture_lp67y")
+"texture": SubResource("AtlasTexture_5hsni")
 }],
 "loop": false,
 "name": &"Active",
@@ -309,7 +313,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rxjku")
+"texture": SubResource("AtlasTexture_k0xyl")
 }],
 "loop": true,
 "name": &"Idle",
@@ -962,17 +966,18 @@ navigation_polygon = SubResource("NavigationPolygon_gwvhe")
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="Piano" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
+[node name="Piano" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker", "animationSound")]
 position = Vector2(-382.5, 18.5)
 scale = Vector2(0.91579, 0.690566)
 sprite_frames = SubResource("SpriteFrames_fb7wc")
 animation = &"Idle"
-frame_progress = 0.974339
 script = ExtResource("8_r8ky6")
 activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
 damage = 30
 interactionMarker = NodePath("InteractionMarker")
+animationSound = NodePath("AudioStreamPlayer")
+animationSoundDelay = 1.0
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Piano"]
 
@@ -992,7 +997,11 @@ sprite_frames = SubResource("SpriteFrames_sxiy2")
 animation = &"Enable"
 frame_progress = 0.712099
 
-[node name="Electricity" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Interactables/Piano"]
+stream = ExtResource("17_bicpk")
+bus = &"SFX"
+
+[node name="Electricity" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker", "animationSound")]
 position = Vector2(340, 89)
 sprite_frames = SubResource("SpriteFrames_mkq0e")
 animation = &"Idle"
@@ -1001,6 +1010,7 @@ activationArea = NodePath("ActivationArea")
 hurtArea = NodePath("HurtArea")
 damage = 20
 interactionMarker = NodePath("InteractionMarker")
+animationSound = NodePath("AudioStreamPlayer")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Electricity"]
 
@@ -1019,7 +1029,11 @@ sprite_frames = SubResource("SpriteFrames_sxiy2")
 animation = &"Enable"
 frame_progress = 0.133266
 
-[node name="Apple1" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Interactables/Electricity"]
+stream = ExtResource("18_ip824")
+bus = &"SFX"
+
+[node name="Apple1" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker", "animationSound")]
 position = Vector2(-104, 135)
 sprite_frames = SubResource("SpriteFrames_ttkx4")
 animation = &"Unavailable"
@@ -1029,6 +1043,7 @@ hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
 interactionMarker = NodePath("InteractionMarker")
+animationSound = NodePath("AudioStreamPlayer")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Apple1"]
 
@@ -1048,7 +1063,11 @@ sprite_frames = SubResource("SpriteFrames_sxiy2")
 animation = &"Enable"
 frame_progress = 0.593016
 
-[node name="Apple2" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Interactables/Apple1"]
+stream = ExtResource("19_hcrdo")
+bus = &"SFX"
+
+[node name="Apple2" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker", "animationSound")]
 position = Vector2(-46, 135)
 sprite_frames = SubResource("SpriteFrames_ttkx4")
 animation = &"Unavailable"
@@ -1058,6 +1077,7 @@ hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
 interactionMarker = NodePath("InteractionMarker")
+animationSound = NodePath("AudioStreamPlayer")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Apple2"]
 
@@ -1077,7 +1097,11 @@ sprite_frames = SubResource("SpriteFrames_sxiy2")
 animation = &"Enable"
 frame_progress = 0.593016
 
-[node name="Apple3" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Interactables/Apple2"]
+stream = ExtResource("19_hcrdo")
+bus = &"SFX"
+
+[node name="Apple3" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker", "animationSound")]
 position = Vector2(48, 135)
 sprite_frames = SubResource("SpriteFrames_ttkx4")
 animation = &"Unavailable"
@@ -1087,6 +1111,7 @@ hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
 interactionMarker = NodePath("InteractionMarker")
+animationSound = NodePath("AudioStreamPlayer")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Apple3"]
 
@@ -1106,7 +1131,11 @@ sprite_frames = SubResource("SpriteFrames_sxiy2")
 animation = &"Enable"
 frame_progress = 0.593016
 
-[node name="Apple4" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Interactables/Apple3"]
+stream = ExtResource("19_hcrdo")
+bus = &"SFX"
+
+[node name="Apple4" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "interactionMarker", "animationSound")]
 position = Vector2(108, 133)
 sprite_frames = SubResource("SpriteFrames_ttkx4")
 animation = &"Unavailable"
@@ -1116,6 +1145,7 @@ hurtArea = NodePath("HurtArea")
 damage = 10
 unavailableIfAlone = true
 interactionMarker = NodePath("InteractionMarker")
+animationSound = NodePath("AudioStreamPlayer")
 
 [node name="ActivationArea" type="Area2D" parent="Interactables/Apple4"]
 
@@ -1134,6 +1164,10 @@ position = Vector2(19, -18)
 sprite_frames = SubResource("SpriteFrames_sxiy2")
 animation = &"Enable"
 frame_progress = 0.593016
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Interactables/Apple4"]
+stream = ExtResource("19_hcrdo")
+bus = &"SFX"
 
 [node name="Push1" type="AnimatedSprite2D" parent="Interactables" node_paths=PackedStringArray("activationArea", "hurtArea", "pushPosition", "interactionMarker")]
 position = Vector2(14, -78)
@@ -1326,7 +1360,7 @@ frame_progress = 0.593016
 [node name="Cars" type="Node2D" parent="."]
 position = Vector2(0, 250.995)
 
-[node name="Car" type="AnimatedSprite2D" parent="Cars" node_paths=PackedStringArray("beginningPosition", "endPosition", "hitArea", "pushToPosition")]
+[node name="Car" type="AnimatedSprite2D" parent="Cars" node_paths=PackedStringArray("beginningPosition", "endPosition", "hitArea", "pushToPosition", "honkSound")]
 z_index = 1
 position = Vector2(-630, 0)
 sprite_frames = SubResource("SpriteFrames_oeb8i")
@@ -1336,6 +1370,7 @@ beginningPosition = NodePath("../Beginning")
 endPosition = NodePath("../End")
 hitArea = NodePath("HitArea")
 pushToPosition = NodePath("PushToPosition")
+honkSound = NodePath("HonkSound")
 
 [node name="HitArea" type="Area2D" parent="Cars/Car"]
 
@@ -1345,6 +1380,10 @@ shape = SubResource("RectangleShape2D_d7cy4")
 
 [node name="PushToPosition" type="Node2D" parent="Cars/Car"]
 position = Vector2(-70, -58)
+
+[node name="HonkSound" type="AudioStreamPlayer" parent="Cars/Car"]
+stream = ExtResource("23_dff8x")
+bus = &"SFX"
 
 [node name="Beginning" type="Node2D" parent="Cars"]
 position = Vector2(630, 0)

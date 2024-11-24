@@ -7,6 +7,8 @@ class_name InteractableBehaviour
 @export var unavailableIfAlone : bool = false
 @export var pushPosition : Node2D 
 @export var interactionMarker : AnimatedSprite2D
+@export var animationSound : AudioStreamPlayer
+@export var animationSoundDelay : float
 var available = true
 
 var victims : Array[NPCBehaviour]
@@ -27,6 +29,7 @@ func activate():
 	if !available:
 		return
 	available = false
+	playSound()
 	if pushPosition != null:
 		pushAllVictims()
 		return
@@ -34,6 +37,12 @@ func activate():
 	interactionMarker.play("Disable")
 	await animation_finished
 	hurtAllVictims()
+
+func playSound():
+	if animationSound == null:
+		return
+	await get_tree().create_timer(animationSoundDelay).timeout
+	animationSound.play()
 
 func activationEntered(body):
 	if body is PlayableCharacterBehaviour:

@@ -1,12 +1,15 @@
 extends Node
 
 @export var waitingForPlayersVisuals : Array[Control]
+@export var keyboardSection : Control
 
 var waitingForPlayers = []
 var _readyToReadInputs = false
 
 func _ready():
 	MusicPlayer.playMenuMusic()
+	if GameManager.keyboardPlayer:
+		keyboardSection.visible = true
 	GameManager.npcDamageMultiplier = [1,1,1,1,1,1,1,1]
 	var unusedColors = [0,1,2,3,4,5,6,7]
 	for key in GameManager.playerColors:

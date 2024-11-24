@@ -59,7 +59,10 @@ func click():
 	var event = InputEventMouseButton.new()
 	event.button_index = MOUSE_BUTTON_LEFT
 	event.pressed = true
-	event.position = Vector2i(self.global_position)
+	var offset = DisplayServer.window_get_size() - Vector2i(get_viewport_rect().size)
+	print (get_viewport_transform().origin)
+	# TODO: this does not work on windowed, use this https://docs.godotengine.org/en/stable/tutorials/2d/2d_transforms.html
+	event.position = Vector2i(self.global_position) + Vector2i(25, 25) + offset/2
 	Input.parse_input_event(event)
 	await get_tree().process_frame
 	event.pressed = false

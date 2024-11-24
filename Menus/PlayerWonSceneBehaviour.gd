@@ -4,6 +4,11 @@ extends Node
 
 func _ready():
 	MusicPlayer.playVictoryMusic()
+	if GameManager.players.size() == 0:
+		var pointer = GameManager.pointerPack.instantiate()
+		self.add_child(pointer)
+		pointer.init(0)
+		return
 	var color = GameManager.playerColors[GameManager.winner]
 	xWon.modulate = GameManager.colors[color]
 	xWon.text = GameManager.colorsName[color] + " won the game"

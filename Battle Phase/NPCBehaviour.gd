@@ -15,7 +15,7 @@ var waitingTimer : SceneTreeTimer
 var stunTimer : SceneTreeTimer
 var index = 0
 
-var CHARACTER_SPEED = 75
+var CHARACTER_SPEED = 200
 var PUSH_SPEED = 300
 var MIN_WAIT_TIME = 10
 var MAX_WAIT_TIME = 30

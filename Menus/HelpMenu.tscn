@@ -1,0 +1,290 @@
+[gd_scene load_steps=4 format=3 uid="uid://djl6kd8qa5kx4"]
+
+[ext_resource type="Texture2D" uid="uid://bsrjffe3deapf" path="res://Menus/MenuBackground.PNG" id="1_04bpc"]
+[ext_resource type="Script" path="res://Menus/HelpMenuBehaviour.gd" id="1_wqayf"]
+[ext_resource type="Theme" uid="uid://citlvkejb3k1b" path="res://Menus/Theme.tres" id="3_qtll8"]
+
+[node name="HelpMenu" type="Control" node_paths=PackedStringArray("introductionPanel", "controlsPanel", "playerSelectionPanel", "startOfTheGamePanel", "actionPhasePanel", "charactersProtectionPanel", "creditsPanel", "firstButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqayf")
+introductionPanel = NodePath("IntroductionPanel")
+controlsPanel = NodePath("ControlsPanel")
+playerSelectionPanel = NodePath("PlayerSelectionPanel")
+startOfTheGamePanel = NodePath("StartOfTheGamePanel")
+actionPhasePanel = NodePath("ActionPhasePanel")
+charactersProtectionPanel = NodePath("CharacterProtectionPanel")
+creditsPanel = NodePath("CreditsPanel")
+firstButton = NodePath("VBoxContainer/Button")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_04bpc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_qtll8")
+theme_override_font_sizes/font_size = 35
+text = "Introduction"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_qtll8")
+theme_override_font_sizes/font_size = 35
+text = "Controls"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_qtll8")
+theme_override_font_sizes/font_size = 35
+text = "Player Selection"
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_qtll8")
+theme_override_font_sizes/font_size = 35
+text = "Start of the game"
+
+[node name="Button5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_qtll8")
+theme_override_font_sizes/font_size = 35
+text = "Action phase"
+
+[node name="Button6" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_qtll8")
+theme_override_font_sizes/font_size = 35
+text = "Character protection"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -158.0
+offset_right = 332.0
+grow_vertical = 0
+alignment = 2
+
+[node name="Button7" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(428, 49)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("3_qtll8")
+theme_override_font_sizes/font_size = 35
+text = "Credits"
+
+[node name="Button8" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(428, 49)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("3_qtll8")
+theme_override_font_sizes/font_size = 35
+text = "Main Menu"
+
+[node name="IntroductionPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1482.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="IntroductionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qtll8")
+text = "This game is for 2-8 local players, so grab a friend or two to play.
+Your objective is to incapacitate your objective by using the interactable points in the action phase.
+Do not make your objective too obvious, or other players might protect them for next round."
+autowrap_mode = 3
+
+[node name="ControlsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1482.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ControlsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qtll8")
+text = "On controller, move with the D-pad or the left joystick and use any face-button to interact.
+On keyboard, move with the arrow keys and interact with the Q,W,E,R keys"
+autowrap_mode = 3
+
+[node name="PlayerSelectionPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1482.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerSelectionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qtll8")
+text = "When you start a game, simply plug a controller for each player and press any facebutton or movement button to join.
+After a player has joined, they have to select their color by pressing left/right and set ready by pressing the interact button.
+The start game button will be available once there are at least 2 players and all players are ready."
+autowrap_mode = 3
+
+[node name="StartOfTheGamePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1482.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="StartOfTheGamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qtll8")
+text = "At the start of the game you will be taken to a screen where players will be able to check their objective in secret.
+Each character will be asigned to a button in the controls. Press the buttons in secret and a ring will play when you press the one asigned to your objective.
+Once you know who is your objective, hold any button pressed to set yourself as ready. When everybody is ready the game will begin."
+autowrap_mode = 3
+
+[node name="ActionPhasePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1482.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ActionPhasePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qtll8")
+text = "In the action phase of the game you can interact with different objects to damage the characters.
+The interactable objects will be shown with an arrow.
+When the timer on the top right ends you will be taken to the character protection phase."
+autowrap_mode = 3
+
+[node name="CharacterProtectionPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1482.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CharacterProtectionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qtll8")
+text = "In the character protection phase of the game you can protect any character in the game so that they will take a fraction of the damage on the next action phase. Try to protect the objective of other players."
+autowrap_mode = 3
+
+[node name="CreditsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1482.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qtll8")
+text = "Programming, game design and sprites by Nekkabi
+Ilustrations by Alba
+
+Music:
+"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 364.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_qtll8")
+theme_override_font_sizes/font_size = 34
+text = "Path To Victory by Universfield -- https://freesound.org/s/704530/ -- License: Attribution 4.0
+
+Halloween Mischief (Playful Music for Halloween Festivities) by Universfield -- https://freesound.org/s/761764/ -- License: Attribution 4.0
+
+Chiptune Loop by kasa90 -- https://freesound.org/s/167419/ -- License: Creative Commons 0"
+autowrap_mode = 3
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="openIntroductionPanel"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="openControlsPanel"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="openPlayerSelectionPanel"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="openStartOfTheGamePanel"]
+[connection signal="pressed" from="VBoxContainer/Button5" to="." method="openActionPhasePanel"]
+[connection signal="pressed" from="VBoxContainer/Button6" to="." method="openCharactersProtectionPanel"]
+[connection signal="pressed" from="VBoxContainer2/Button7" to="." method="openCreditsPanel"]
+[connection signal="pressed" from="VBoxContainer2/Button8" to="." method="mainMenu"]

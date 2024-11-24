@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bepldkf8l30m0"
+path="res://.godot/imported/Electricity.mp3-98b377aa39c05df4da900517b31b5958.mp3str"
+
+[deps]
+
+source_file="res://Battle Phase/Electricity.mp3"
+dest_files=["res://.godot/imported/Electricity.mp3-98b377aa39c05df4da900517b31b5958.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

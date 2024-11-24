@@ -4,11 +4,14 @@ extends AnimatedSprite2D
 @export var endPosition : Node2D
 @export var hitArea : Area2D
 @export var pushToPosition : Node2D
+@export var honkSound : AudioStreamPlayer
 
 var MIN_WAITING_TIME = 0
 var MAX_WAITING_TIME = 20
 var MIN_SPEED = 200
 var MAX_SPEED = 400
+
+var WAIT_TIME_AFTER_HONK = 1
 
 var waitingTime
 var currentSpeed
@@ -33,6 +36,8 @@ func startMovingAfterTime():
 	currentSpeed = randf_range(MIN_SPEED, MAX_SPEED)
 	await get_tree().create_timer(waitingTime).timeout
 	position = beginningPosition.position
+	honkSound.play()
+	await get_tree().create_timer(WAIT_TIME_AFTER_HONK).timeout
 	isMoving = true
 
 func hitEntered(body):

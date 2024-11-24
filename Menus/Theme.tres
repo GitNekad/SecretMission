@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://citlvkejb3k1b"]
+
+[sub_resource type="SystemFont" id="SystemFont_c8ebc"]
+font_names = PackedStringArray("Monospace")
+
+[sub_resource type="SystemFont" id="SystemFont_gbsgo"]
+font_names = PackedStringArray("Monospace")
+
+[resource]
+default_font = SubResource("SystemFont_gbsgo")
+default_font_size = 60
+Button/font_sizes/font_size = 60
+Button/fonts/font = SubResource("SystemFont_c8ebc")

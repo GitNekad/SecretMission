@@ -1,18 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://ciyfkirc8qjm4"]
+[gd_scene load_steps=10 format=3 uid="uid://ciyfkirc8qjm4"]
 
 [ext_resource type="Script" path="res://Menus/SelectPlayersBehaviour.gd" id="1_ennse"]
 [ext_resource type="Script" path="res://Menus/PlayerHolder.gd" id="2_e7yyy"]
+[ext_resource type="Texture2D" uid="uid://d0hpbtxyxs1kt" path="res://Menus/SelectCharacter.PNG" id="2_qbj4w"]
 [ext_resource type="SpriteFrames" uid="uid://cynanwwfv68qp" path="res://Playable Character/PlayableCharacter.tres" id="3_o5xik"]
 [ext_resource type="Texture2D" uid="uid://8o0e5f4s10pb" path="res://Menus/Arrow.png" id="4_3pvpy"]
+[ext_resource type="Theme" uid="uid://citlvkejb3k1b" path="res://Menus/Theme.tres" id="4_qf2p2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m1o3m"]
 font_size = 75
 
 [sub_resource type="LabelSettings" id="LabelSettings_tuk6c"]
-font_size = 36
+font_size = 29
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptu3v"]
-font_size = 34
+font_size = 31
 
 [node name="SelectPlayers" type="Control" node_paths=PackedStringArray("playerHolders", "playButton")]
 layout_mode = 3
@@ -25,16 +27,18 @@ script = ExtResource("1_ennse")
 playerHolders = [NodePath("PlayerContainers/TopPlayers/PlayerHolder"), NodePath("PlayerContainers/TopPlayers/PlayerHolder2"), NodePath("PlayerContainers/TopPlayers/PlayerHolder3"), NodePath("PlayerContainers/TopPlayers/PlayerHolder4"), NodePath("PlayerContainers/BotPlayers/PlayerHolder"), NodePath("PlayerContainers/BotPlayers/PlayerHolder2"), NodePath("PlayerContainers/BotPlayers/PlayerHolder3"), NodePath("PlayerContainers/BotPlayers/PlayerHolder4")]
 playButton = NodePath("Play")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.145098, 0.168627, 0.203922, 1)
+mouse_filter = 2
+texture = ExtResource("2_qbj4w")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 305.0
+theme = ExtResource("4_qf2p2")
 text = "Grab some friends and get ready to play"
 label_settings = SubResource("LabelSettings_m1o3m")
 horizontal_alignment = 1
@@ -60,7 +64,7 @@ layout_mode = 2
 [node name="PlayerHolder" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-color = Color(0.012, 0.0642, 0.12, 1)
+color = Color(0.012, 0.0642, 0.12, 0)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
 waitingForPlayerSetup = NodePath("Waiting For Player Setup")
@@ -90,6 +94,7 @@ offset_top = -300.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Press
 any button
@@ -115,6 +120,7 @@ offset_left = -155.5
 offset_right = 155.5
 offset_bottom = 54.0
 grow_horizontal = 2
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Select your color"
 label_settings = SubResource("LabelSettings_tuk6c")
@@ -164,6 +170,7 @@ offset_top = -54.0
 offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Aquamarine ready"
 label_settings = SubResource("LabelSettings_ptu3v")
@@ -179,7 +186,7 @@ animation = &"F-Idle"
 [node name="PlayerHolder2" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-color = Color(0.012, 0.0642, 0.12, 1)
+color = Color(0.012, 0.0642, 0.12, 0)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
 waitingForPlayerSetup = NodePath("Waiting For Player Setup")
@@ -209,6 +216,7 @@ offset_top = -300.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Press
 any button
@@ -234,6 +242,7 @@ offset_left = -155.5
 offset_right = 155.5
 offset_bottom = 54.0
 grow_horizontal = 2
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Select your color"
 label_settings = SubResource("LabelSettings_tuk6c")
@@ -283,6 +292,7 @@ offset_top = -54.0
 offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Aquamarine ready"
 label_settings = SubResource("LabelSettings_ptu3v")
@@ -298,7 +308,7 @@ animation = &"F-Idle"
 [node name="PlayerHolder3" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-color = Color(0.012, 0.0642, 0.12, 1)
+color = Color(0.012, 0.0642, 0.12, 0)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
 waitingForPlayerSetup = NodePath("Waiting For Player Setup")
@@ -328,6 +338,7 @@ offset_top = -300.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Press
 any button
@@ -353,6 +364,7 @@ offset_left = -155.5
 offset_right = 155.5
 offset_bottom = 54.0
 grow_horizontal = 2
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Select your color"
 label_settings = SubResource("LabelSettings_tuk6c")
@@ -402,6 +414,7 @@ offset_top = -54.0
 offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Aquamarine ready"
 label_settings = SubResource("LabelSettings_ptu3v")
@@ -417,7 +430,7 @@ animation = &"F-Idle"
 [node name="PlayerHolder4" type="ColorRect" parent="PlayerContainers/TopPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-color = Color(0.012, 0.0642, 0.12, 1)
+color = Color(0.012, 0.0642, 0.12, 0)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
 waitingForPlayerSetup = NodePath("Waiting For Player Setup")
@@ -447,6 +460,7 @@ offset_top = -300.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Press
 any button
@@ -472,6 +486,7 @@ offset_left = -155.5
 offset_right = 155.5
 offset_bottom = 54.0
 grow_horizontal = 2
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Select your color"
 label_settings = SubResource("LabelSettings_tuk6c")
@@ -521,6 +536,7 @@ offset_top = -54.0
 offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Aquamarine ready"
 label_settings = SubResource("LabelSettings_ptu3v")
@@ -539,7 +555,7 @@ layout_mode = 2
 [node name="PlayerHolder" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-color = Color(0.012, 0.0642, 0.12, 1)
+color = Color(0.012, 0.0642, 0.12, 0)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
 waitingForPlayerSetup = NodePath("Waiting For Player Setup")
@@ -569,6 +585,7 @@ offset_top = -300.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Press
 any button
@@ -594,6 +611,7 @@ offset_left = -155.5
 offset_right = 155.5
 offset_bottom = 54.0
 grow_horizontal = 2
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Select your color"
 label_settings = SubResource("LabelSettings_tuk6c")
@@ -643,6 +661,7 @@ offset_top = -54.0
 offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Aquamarine ready"
 label_settings = SubResource("LabelSettings_ptu3v")
@@ -658,7 +677,7 @@ animation = &"F-Idle"
 [node name="PlayerHolder2" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-color = Color(0.012, 0.0642, 0.12, 1)
+color = Color(0.012, 0.0642, 0.12, 0)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
 waitingForPlayerSetup = NodePath("Waiting For Player Setup")
@@ -688,6 +707,7 @@ offset_top = -300.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Press
 any button
@@ -713,6 +733,7 @@ offset_left = -155.5
 offset_right = 155.5
 offset_bottom = 54.0
 grow_horizontal = 2
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Select your color"
 label_settings = SubResource("LabelSettings_tuk6c")
@@ -762,6 +783,7 @@ offset_top = -54.0
 offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Aquamarine ready"
 label_settings = SubResource("LabelSettings_ptu3v")
@@ -777,7 +799,7 @@ animation = &"F-Idle"
 [node name="PlayerHolder3" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-color = Color(0.012, 0.0642, 0.12, 1)
+color = Color(0.012, 0.0642, 0.12, 0)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
 waitingForPlayerSetup = NodePath("Waiting For Player Setup")
@@ -807,6 +829,7 @@ offset_top = -300.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Press
 any button
@@ -832,6 +855,7 @@ offset_left = -155.5
 offset_right = 155.5
 offset_bottom = 54.0
 grow_horizontal = 2
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Select your color"
 label_settings = SubResource("LabelSettings_tuk6c")
@@ -881,6 +905,7 @@ offset_top = -54.0
 offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Aquamarine ready"
 label_settings = SubResource("LabelSettings_ptu3v")
@@ -896,7 +921,7 @@ animation = &"F-Idle"
 [node name="PlayerHolder4" type="ColorRect" parent="PlayerContainers/BotPlayers" node_paths=PackedStringArray("readyForNewPlayer", "waitingForPlayerSetup", "playerReady", "playerColorShow", "playerReadyColorShow", "playerReadyText")]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-color = Color(0.012, 0.0642, 0.12, 1)
+color = Color(0.012, 0.0642, 0.12, 0)
 script = ExtResource("2_e7yyy")
 readyForNewPlayer = NodePath("Ready For New Player")
 waitingForPlayerSetup = NodePath("Waiting For Player Setup")
@@ -926,6 +951,7 @@ offset_top = -300.0
 offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Press
 any button
@@ -951,6 +977,7 @@ offset_left = -155.5
 offset_right = 155.5
 offset_bottom = 54.0
 grow_horizontal = 2
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Select your color"
 label_settings = SubResource("LabelSettings_tuk6c")
@@ -1000,6 +1027,7 @@ offset_top = -54.0
 offset_right = 133.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 39
 text = "Aquamarine ready"
 label_settings = SubResource("LabelSettings_ptu3v")
@@ -1026,6 +1054,7 @@ offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
+theme = ExtResource("4_qf2p2")
 theme_override_font_sizes/font_size = 106
 text = "Play"
 

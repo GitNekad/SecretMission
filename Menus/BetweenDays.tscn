@@ -1,11 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://6p4qirckyjq1"]
+[gd_scene load_steps=17 format=3 uid="uid://6p4qirckyjq1"]
 
 [ext_resource type="Texture2D" uid="uid://dlx8tt8xhvb8" path="res://Menus/ControllerScreen.png" id="1_0jkyf"]
 [ext_resource type="Script" path="res://Menus/BetweenDaysBehaviour.gd" id="1_x6aae"]
 [ext_resource type="SpriteFrames" uid="uid://cynanwwfv68qp" path="res://Playable Character/PlayableCharacter.tres" id="2_bfyea"]
+[ext_resource type="Texture2D" uid="uid://bh2vbxfahbcns" path="res://Menus/ControllerBackground.PNG" id="2_dlhd3"]
 [ext_resource type="SpriteFrames" uid="uid://sw6cjor5dhlk" path="res://Battle Phase/Sprites/Axolotl.tres" id="3_hdmad"]
 [ext_resource type="SpriteFrames" uid="uid://d3gtip72gjfln" path="res://Battle Phase/Sprites/Cat.tres" id="4_40ns3"]
+[ext_resource type="Theme" uid="uid://citlvkejb3k1b" path="res://Menus/Theme.tres" id="4_totcn"]
 [ext_resource type="SpriteFrames" uid="uid://ctoi8g172yf54" path="res://Battle Phase/Sprites/Hare.tres" id="5_bp1jw"]
+[ext_resource type="Texture2D" uid="uid://btarp5fixxx2i" path="res://Menus/Keyboard.png" id="6_hpwuh"]
 [ext_resource type="SpriteFrames" uid="uid://bbwn1sjbj8vcl" path="res://Battle Phase/Sprites/Monki.tres" id="6_ooqow"]
 [ext_resource type="SpriteFrames" uid="uid://cx4gwd2bs4ajf" path="res://Battle Phase/Sprites/Owl.tres" id="7_e1bhh"]
 [ext_resource type="SpriteFrames" uid="uid://cahcrapisjsh7" path="res://Battle Phase/Sprites/Penwin.tres" id="8_cceb7"]
@@ -18,11 +21,12 @@ font_size = 45
 [sub_resource type="LabelSettings" id="LabelSettings_jjk4w"]
 font_size = 52
 
-[node name="BetweenDays" type="Node2D" node_paths=PackedStringArray("waitingForPlayersVisuals")]
+[node name="BetweenDays" type="Node2D" node_paths=PackedStringArray("waitingForPlayersVisuals", "keyboardSection")]
 script = ExtResource("1_x6aae")
 waitingForPlayersVisuals = [NodePath("BG/Waiting for players container/ColorRect"), NodePath("BG/Waiting for players container/ColorRect2"), NodePath("BG/Waiting for players container/ColorRect3"), NodePath("BG/Waiting for players container/ColorRect4"), NodePath("BG/Waiting for players container/ColorRect5"), NodePath("BG/Waiting for players container/ColorRect6"), NodePath("BG/Waiting for players container/ColorRect7"), NodePath("BG/Waiting for players container/ColorRect8")]
+keyboardSection = NodePath("BG/Keyboard")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,9 +34,10 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.145098, 0.168627, 0.203922, 1)
+texture = ExtResource("2_dlhd3")
 
 [node name="TextureRect" type="TextureRect" parent="BG"]
+visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -42,6 +47,7 @@ texture = ExtResource("1_0jkyf")
 layout_mode = 0
 offset_right = 1921.0
 offset_bottom = 161.0
+theme = ExtResource("4_totcn")
 text = "Press a button to select a character to protect next round.
 Protected characters will receive half the damage."
 label_settings = SubResource("LabelSettings_67rgn")
@@ -60,6 +66,7 @@ offset_right = 75.5
 offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_totcn")
 text = "Waiting for Players:"
 label_settings = SubResource("LabelSettings_jjk4w")
 horizontal_alignment = 1
@@ -176,52 +183,124 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_bfyea")
 animation = &"F-Idle"
 
+[node name="Keyboard" type="Panel" parent="BG"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -410.0
+offset_top = -507.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="BG/Keyboard"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 65.0
+offset_right = 202.0
+offset_bottom = 254.0
+scale = Vector2(2, 2)
+texture = ExtResource("6_hpwuh")
+
+[node name="Characters" type="Node2D" parent="BG/Keyboard"]
+
+[node name="NPC1" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(194, 239)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_hdmad")
+animation = &"F-Idle"
+
+[node name="NPC2" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(112, 468)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_40ns3")
+animation = &"F-Idle"
+
+[node name="NPC3" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(277, 468)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("5_bp1jw")
+animation = &"F-Idle"
+
+[node name="NPC4" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(188, 467)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("6_ooqow")
+animation = &"F-Idle"
+
+[node name="NPC5" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(131, 38)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_e1bhh")
+animation = &"F-Idle"
+
+[node name="NPC6" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(298, 36)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("8_cceb7")
+animation = &"F-Idle"
+
+[node name="NPC7" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(58, 39)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("9_mjg2p")
+animation = &"F-Idle"
+
+[node name="NPC8" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(207, 35)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("10_851op")
+animation = &"F-Idle"
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="NPC1" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(570, 284)
+position = Vector2(746, 421)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("3_hdmad")
 animation = &"F-Idle"
 
 [node name="NPC2" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(425, 428)
+position = Vector2(625, 542)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("4_40ns3")
 animation = &"F-Idle"
 
 [node name="NPC3" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(711, 428)
+position = Vector2(866, 544)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("5_bp1jw")
 animation = &"F-Idle"
 
 [node name="NPC4" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(570, 571)
+position = Vector2(748, 674)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("6_ooqow")
 animation = &"F-Idle"
 
 [node name="NPC5" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(1353, 259)
+position = Vector2(1221, 264)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("7_e1bhh")
 animation = &"F-Idle"
 
 [node name="NPC6" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(1353, 598)
+position = Vector2(1224, 423)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("8_cceb7")
 animation = &"F-Idle"
 
 [node name="NPC7" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(1184, 429)
+position = Vector2(1138, 340)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("9_mjg2p")
 animation = &"F-Idle"
 
 [node name="NPC8" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(1520, 429)
+position = Vector2(1301, 348)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("10_851op")
 animation = &"F-Idle"

@@ -1,11 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://muyfyowqhvp3"]
+[gd_scene load_steps=18 format=3 uid="uid://muyfyowqhvp3"]
 
 [ext_resource type="Texture2D" uid="uid://dlx8tt8xhvb8" path="res://Menus/ControllerScreen.png" id="1_5da1u"]
 [ext_resource type="Script" path="res://Menus/ShowObjectiveBehaviour.gd" id="1_sah2e"]
+[ext_resource type="Texture2D" uid="uid://bh2vbxfahbcns" path="res://Menus/ControllerBackground.PNG" id="2_3wolm"]
 [ext_resource type="SpriteFrames" uid="uid://cynanwwfv68qp" path="res://Playable Character/PlayableCharacter.tres" id="2_sgq24"]
 [ext_resource type="SpriteFrames" uid="uid://sw6cjor5dhlk" path="res://Battle Phase/Sprites/Axolotl.tres" id="3_ku2kd"]
 [ext_resource type="SpriteFrames" uid="uid://d3gtip72gjfln" path="res://Battle Phase/Sprites/Cat.tres" id="4_e81dl"]
+[ext_resource type="Theme" uid="uid://citlvkejb3k1b" path="res://Menus/Theme.tres" id="4_ty86n"]
 [ext_resource type="SpriteFrames" uid="uid://ctoi8g172yf54" path="res://Battle Phase/Sprites/Hare.tres" id="5_gsjr8"]
+[ext_resource type="Texture2D" uid="uid://btarp5fixxx2i" path="res://Menus/Keyboard.png" id="6_dy3m7"]
 [ext_resource type="SpriteFrames" uid="uid://bbwn1sjbj8vcl" path="res://Battle Phase/Sprites/Monki.tres" id="6_v6jr1"]
 [ext_resource type="SpriteFrames" uid="uid://cx4gwd2bs4ajf" path="res://Battle Phase/Sprites/Owl.tres" id="7_yumi3"]
 [ext_resource type="SpriteFrames" uid="uid://cahcrapisjsh7" path="res://Battle Phase/Sprites/Penwin.tres" id="8_eljns"]
@@ -14,17 +17,18 @@
 [ext_resource type="AudioStream" uid="uid://7853iuldx3m6" path="res://Menus/confirmation_004.ogg" id="12_vjyfd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hsf5m"]
-font_size = 45
+font_size = 37
 
 [sub_resource type="LabelSettings" id="LabelSettings_wmfgn"]
 font_size = 52
 
-[node name="ShowObjective" type="Node2D" node_paths=PackedStringArray("waitingForPlayersVisuals", "correctPlayerSound")]
+[node name="ShowObjective" type="Node2D" node_paths=PackedStringArray("waitingForPlayersVisuals", "correctPlayerSound", "keyboardSection")]
 script = ExtResource("1_sah2e")
 waitingForPlayersVisuals = [NodePath("BG/Waiting for players container/ColorRect"), NodePath("BG/Waiting for players container/ColorRect2"), NodePath("BG/Waiting for players container/ColorRect3"), NodePath("BG/Waiting for players container/ColorRect4"), NodePath("BG/Waiting for players container/ColorRect5"), NodePath("BG/Waiting for players container/ColorRect6"), NodePath("BG/Waiting for players container/ColorRect7"), NodePath("BG/Waiting for players container/ColorRect8")]
 correctPlayerSound = NodePath("CorrectPlayerSound")
+keyboardSection = NodePath("BG/Keyboard")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,9 +36,10 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.145098, 0.168627, 0.203922, 1)
+texture = ExtResource("2_3wolm")
 
 [node name="TextureRect" type="TextureRect" parent="BG"]
+visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -44,6 +49,7 @@ texture = ExtResource("1_5da1u")
 layout_mode = 0
 offset_right = 1921.0
 offset_bottom = 161.0
+theme = ExtResource("4_ty86n")
 text = "Press buttons and a sound will let you know when you guessed your objective correctly.
 Hold any button to get ready to start."
 label_settings = SubResource("LabelSettings_hsf5m")
@@ -62,6 +68,7 @@ offset_right = 75.5
 offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_ty86n")
 text = "Waiting for Players:"
 label_settings = SubResource("LabelSettings_wmfgn")
 horizontal_alignment = 1
@@ -178,52 +185,124 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_sgq24")
 animation = &"F-Idle"
 
+[node name="Keyboard" type="Panel" parent="BG"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -410.0
+offset_top = -507.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="BG/Keyboard"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 65.0
+offset_right = 202.0
+offset_bottom = 254.0
+scale = Vector2(2, 2)
+texture = ExtResource("6_dy3m7")
+
+[node name="Characters" type="Node2D" parent="BG/Keyboard"]
+
+[node name="NPC1" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(194, 239)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_ku2kd")
+animation = &"F-Idle"
+
+[node name="NPC2" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(112, 468)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_e81dl")
+animation = &"F-Idle"
+
+[node name="NPC3" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(277, 468)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("5_gsjr8")
+animation = &"F-Idle"
+
+[node name="NPC4" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(188, 467)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("6_v6jr1")
+animation = &"F-Idle"
+
+[node name="NPC5" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(131, 38)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("7_yumi3")
+animation = &"F-Idle"
+
+[node name="NPC6" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(298, 36)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("8_eljns")
+animation = &"F-Idle"
+
+[node name="NPC7" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(58, 39)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("9_7ikey")
+animation = &"F-Idle"
+
+[node name="NPC8" type="AnimatedSprite2D" parent="BG/Keyboard/Characters"]
+position = Vector2(207, 35)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("10_00tmn")
+animation = &"F-Idle"
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="NPC1" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(570, 284)
+position = Vector2(742, 428)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("3_ku2kd")
 animation = &"F-Idle"
 
 [node name="NPC2" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(425, 428)
+position = Vector2(622, 541)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("4_e81dl")
 animation = &"F-Idle"
 
 [node name="NPC3" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(711, 428)
+position = Vector2(858, 550)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("5_gsjr8")
 animation = &"F-Idle"
 
 [node name="NPC4" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(570, 571)
+position = Vector2(748, 660)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("6_v6jr1")
 animation = &"F-Idle"
 
 [node name="NPC5" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(1353, 259)
+position = Vector2(1220, 263)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("7_yumi3")
 animation = &"F-Idle"
 
 [node name="NPC6" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(1353, 598)
+position = Vector2(1222, 427)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("8_eljns")
 animation = &"F-Idle"
 
 [node name="NPC7" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(1184, 429)
+position = Vector2(1140, 343)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("9_7ikey")
 animation = &"F-Idle"
 
 [node name="NPC8" type="AnimatedSprite2D" parent="Characters"]
-position = Vector2(1520, 429)
+position = Vector2(1305, 346)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("10_00tmn")
 animation = &"F-Idle"

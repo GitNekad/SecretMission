@@ -6,5 +6,6 @@
 [node name="Pointer" type="TextureRect"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("1_124gk")
 script = ExtResource("2_sbriq")

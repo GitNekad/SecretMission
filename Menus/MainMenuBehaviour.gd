@@ -8,6 +8,12 @@ func _ready():
 
 func startGame():
 	get_tree().change_scene_to_file("res://Menus/SelectPlayers.tscn")
+	
+func openOptions():
+	get_tree().change_scene_to_file("res://Menus/OptionsMenu.tscn")
+	
+func openHelp():
+	get_tree().change_scene_to_file("res://Menus/HelpMenu.tscn")
 
 func quitGame():
 	get_tree().quit()
