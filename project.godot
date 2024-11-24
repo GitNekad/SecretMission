@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="Secret Mission"
+config/version="1.0"
 run/main_scene="res://Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
