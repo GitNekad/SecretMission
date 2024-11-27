@@ -20,6 +20,8 @@ var NUMBER_OF_NPCS = 8
 func asignNpcsToPlayers():
 	# Set max value to all npcs
 	var availableNpcs = []
+	npcHealth = []
+	npcDamageMultiplier = [1,1,1,1,1,1,1,1]
 	for i in range(NUMBER_OF_NPCS):
 		npcHealth.append(maxHealth)
 		availableNpcs.append(i)
