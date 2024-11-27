@@ -29,10 +29,8 @@ func asignNpcsToPlayers():
 		availableNpcs.erase(npc)
 		objectives[key] = npc
 
-# TODO: Fix broken sprites -> piano, apple maybe electricity
-# TODO: Icon
+
 # -------------------------
-# TODO: Make sprites work correctly with YSort
 # TODO: Fix bug with npcs going to the same poi
 # TODO: Add gameplay options (hidden characters, etc)
 # TODO: Add random events (rain, )

@@ -567,6 +567,7 @@ animations = [{
 }]
 
 [node name="BattleScene" type="Node2D" node_paths=PackedStringArray("npcs", "timer", "playerHolder", "playerSpawnPoints", "npcIncapacitatedPanel", "xWasIncapacitated", "incapacitatedSprite", "statusLabel")]
+y_sort_enabled = true
 script = ExtResource("1_jgtrp")
 npcs = [NodePath("NPCs/NPC1"), NodePath("NPCs/NPC2"), NodePath("NPCs/NPC3"), NodePath("NPCs/NPC4"), NodePath("NPCs/NPC5"), NodePath("NPCs/NPC6"), NodePath("NPCs/NPC7"), NodePath("NPCs/NPC8")]
 timer = NodePath("Timer/TextureProgressBar")
@@ -581,6 +582,7 @@ statusLabel = NodePath("Npc Incapacitated Panel/BG/Status")
 zoom = Vector2(2, 2)
 
 [node name="SceneBackground" type="Sprite2D" parent="."]
+z_index = -1
 texture = ExtResource("2_2pvcw")
 
 [node name="Map Collisions" type="StaticBody2D" parent="."]
@@ -623,7 +625,8 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_vqimw")
 
 [node name="NPCs" type="Node2D" parent="."]
-top_level = true
+z_index = 1
+y_sort_enabled = true
 
 [node name="NPC1" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 y_sort_enabled = true
@@ -640,6 +643,8 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC1"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 sprite_frames = ExtResource("5_j1r3r")
 animation = &"F-Idle"
@@ -674,6 +679,8 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC2"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 sprite_frames = ExtResource("6_u0ank")
 animation = &"F-Idle"
@@ -708,6 +715,8 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC3"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 sprite_frames = ExtResource("7_irs5r")
 animation = &"F-Idle"
@@ -742,6 +751,8 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC4"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 sprite_frames = ExtResource("8_1ywur")
 animation = &"F-Idle"
@@ -776,6 +787,8 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC5"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 sprite_frames = ExtResource("9_l8jfl")
 animation = &"F-Idle"
@@ -810,6 +823,8 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC6"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 sprite_frames = ExtResource("10_ecycd")
 animation = &"F-Idle"
@@ -844,6 +859,8 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC7"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 sprite_frames = ExtResource("11_vph66")
 animation = &"F-Idle"
@@ -862,6 +879,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_0xi7y")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2oe0a")
 value = 99.96
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="NPC8" type="CharacterBody2D" parent="NPCs" node_paths=PackedStringArray("navigationAgent", "pointsOfInterest", "sprite", "healthBar", "sceneBehaviour")]
 y_sort_enabled = true
@@ -878,6 +896,8 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_e6w7y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC8"]
+z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 sprite_frames = ExtResource("12_xqayn")
 animation = &"F-Idle"
@@ -1361,7 +1381,7 @@ frame_progress = 0.593016
 position = Vector2(0, 250.995)
 
 [node name="Car" type="AnimatedSprite2D" parent="Cars" node_paths=PackedStringArray("beginningPosition", "endPosition", "hitArea", "pushToPosition", "honkSound")]
-z_index = 1
+z_index = 2
 position = Vector2(-630, 0)
 sprite_frames = SubResource("SpriteFrames_oeb8i")
 frame_progress = 0.326758
@@ -1407,6 +1427,8 @@ texture_under = ExtResource("21_3vv7n")
 texture_progress = ExtResource("22_g1ctl")
 
 [node name="Players" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 
 [node name="PlayerSpawnPoints" type="Node2D" parent="."]
 
