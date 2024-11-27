@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://11vh3qvkldpg"]
+[gd_scene load_steps=7 format=3 uid="uid://11vh3qvkldpg"]
 
 [ext_resource type="Script" path="res://Menus/MainMenuBehaviour.gd" id="1_chga8"]
 [ext_resource type="Texture2D" uid="uid://bgsy5y8pkes02" path="res://Menus/MainMenu.PNG" id="2_3ldfq"]
 [ext_resource type="Theme" uid="uid://citlvkejb3k1b" path="res://Menus/Theme.tres" id="3_742pg"]
+[ext_resource type="Texture2D" uid="uid://0mugdd3wed6r" path="res://Menus/Bluesky_Logo.png" id="4_n2pmq"]
+[ext_resource type="Texture2D" uid="uid://b4xq2okxk8xy5" path="res://Menus/Bluesky_Logo_White.png" id="5_hebjw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gux88"]
 font_size = 114
@@ -103,7 +105,27 @@ grow_vertical = 2
 theme = ExtResource("3_742pg")
 text = "Quit"
 
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -143.0
+offset_right = 440.0
+offset_bottom = 387.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("4_n2pmq")
+texture_pressed = ExtResource("5_hebjw")
+texture_hover = ExtResource("5_hebjw")
+texture_focused = ExtResource("5_hebjw")
+
 [connection signal="pressed" from="StartButton" to="." method="startGame"]
 [connection signal="pressed" from="OptionsButton" to="." method="openOptions"]
 [connection signal="pressed" from="HelpButton" to="." method="openHelp"]
 [connection signal="pressed" from="QuitButton" to="." method="quitGame"]
+[connection signal="pressed" from="TextureButton" to="." method="openBluesky"]

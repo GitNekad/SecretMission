@@ -17,3 +17,6 @@ func openHelp():
 
 func quitGame():
 	get_tree().quit()
+
+func openBluesky():
+	OS.shell_open("https://bsky.app/profile/nekkabi.bsky.social")
